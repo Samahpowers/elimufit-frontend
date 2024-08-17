@@ -1,0 +1,75 @@
+/* Custom CSS for changing the color of the Bootstrap Icons toggle icon */
+.dropdown-toggle::after {
+    color: #178b76; /* Change this to your desired color */
+  }
+  /* Remove border-radius from dropdown menu */
+.dropdown-menu {
+    border-radius: 0 !important;
+    background-color: #8cc751 !important;
+}
+.dropdown-menu-li {
+    border: 1px #ffffff !important;
+    
+}
+
+/* Optional: Remove border-radius from dropdown items (li elements) */
+.dropdown-item {
+    border-radius: 0 !important;
+    border-top: 1px #ffff !important;
+    gap: 1px;
+}
+.header2-container {
+    background-color: #004170;
+}
+.vertical-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: fit-content;
+    
+    background-color: #004170;
+    color: white;
+    z-index: 1000;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    padding: 20px;
+  }
+  
+  
+  
+  .vertical-nav .nav-link {
+    color: white;
+    padding: 10px 0;
+    display: block;
+  }
+  .vertical-nav-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .vertical-nav-container.visible {
+    max-height: 500px; /* Set a height large enough to contain the nav */
+  }
+  
+  .vertical-nav-container.hidden {
+    max-height: 0;
+  }
+  
+  /* Optional: Add a smooth opacity transition */
+  .vertical-nav-container {
+    opacity: 0;
+    transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
+  }
+  
+  .vertical-nav-container.visible {
+    opacity: 1;
+    max-height: 500px;
+  }
+  
+  .vertical-nav-container.hidden {
+    opacity: 0;
+    max-height: 0;
+  }
+  

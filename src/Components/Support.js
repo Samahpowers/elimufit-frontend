@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { prePrimaryItems, primaryItems, jssItems, secondaryItems } from './schoolItems.js';
-
+import config from '../config.js';
 const categoryTableMap = {
     "create/schemes": "schemes",
     "create/curriculum/designs": "curriculum_designs",
@@ -99,7 +99,8 @@ const Support = () => {
         formData.append('category', category);
 
         try {
-            const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+            const apiUrl = config.API_BASE_URL;
+            console.log(`Submitting to: ${apiUrl}/${path}/${category}`);
             const response = await axios.post(`${apiUrl}/${path}/${category}`, formData);
             setSuccessMessage(response.data.message);
             setValues({

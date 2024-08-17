@@ -19,7 +19,8 @@ export const useDownloadHandler = () => {
             if (!isSubscribed) throw new Error('You must subscribe to download');
     
             const modifiedCategory = category.slice(0, -1);
-            const url = `http://localhost:8000/${path}/${modifiedCategory}/file/${id}`;
+            const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+            const url = `${apiUrl}/${path}/${modifiedCategory}/file/${id}`;
             console.log('Request URL IS:', url);
             
             const response = await axios.get(url, {
@@ -83,7 +84,8 @@ export const useDeleteHandler = () => {
     const handleDeleteExam = async (path, id, category) => {
         try {
             const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
-            const url = `${apiUrl}}/${path}/${category}/${id}`;
+           
+            const url = `${apiUrl}/${path}/${category}/${id}`;
             console.log('Request URL IS:', url);
             
             const response = await axios.delete(url);

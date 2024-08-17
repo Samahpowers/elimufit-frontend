@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import config from "../config";
 const Subscribe = ({ userId }) => {
     const [formData, setFormData] = useState({
         amount: "",
@@ -27,7 +27,8 @@ const Subscribe = ({ userId }) => {
         setMessage({ type: "", text: "" });
 
         try {
-            const response = await axios.post("http://localhost:8000/api/mpesa/stk/push", formData);
+            const apiUrl = config.API_BASE_URL;
+            const response = await axios.post(`${apiUrl}/api/mpesa/stk/push`, formData);
             if (response.data.CustomerMessage) {
                 setMessage({ type: "success", text: response.data.CustomerMessage });
                 // Redirect to home after a short delay

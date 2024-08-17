@@ -3,7 +3,7 @@ import VerticalnavMenu from './Vertical_nav._menu'
 import Footer from './Footer';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import config from '../config';
 const ExamsList = ({ heading, items, navigateTo }) => {
     const [selectedItem, setSelectedItem] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -14,9 +14,12 @@ const ExamsList = ({ heading, items, navigateTo }) => {
         try {
             setLoading(true);
             setError(null);
-            const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+            const apiUrl = config.API_BASE_URL;
+           
             const url = `${apiUrl}/${path}/${value}/${year}`;
+            console.log('the fetched url is:', url)
             const res = await axios.get(url);
+          
             navigate(navigateTo, { state: { data: res.data, selectedItem: { path, value, year } } });
         } catch (error) {
             setError("Error fetching data, please try again later.");

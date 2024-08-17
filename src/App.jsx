@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 import {jwtDecode} from 'jwt-decode'; // Correct import syntax
 import { clearToken } from './utils';
-
+import config from './config';
 const App = () => {
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -39,7 +39,7 @@ const App = () => {
         const fetchSubscriptionStatus = async () => {
             if (userId) {
                 try {
-                    const apiUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+                    const apiUrl = config.API_BASE_URL;
                     const url = `${apiUrl}/api/subscriptions/status/${userId}`;
                     console.log('Fetching subscription status from URL:', url);
                     const response = await fetch(url);

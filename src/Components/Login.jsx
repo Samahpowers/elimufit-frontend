@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { validationLogins } from "../middlewares/loginValidation";
 import axios from "axios";
-
+import config from "../config";
 
 const Login = () => {
     const [formData, setFormData] = useState({ email: "", password: "" });
@@ -34,7 +34,8 @@ const Login = () => {
     
         try {
             // Send login request to the server
-            const response = await axios.post("http://localhost:8000/api/login", formData);
+            const apiUrl = config.API_BASE_URL;
+            const response = await axios.post(`${apiUrl}/api/login`, formData);
             
             // Extract token and userId from response data
             const { token, userId, isSubscribed} = response.data;
@@ -59,7 +60,8 @@ const Login = () => {
 
     // Function to send userId to the server
     const sendUserIdToServer = (userId) => {
-        fetch('http://localhost:8000/user/data/id', { // Replace with your actual endpoint
+        const apiUrl = config.API_BASE_URL;
+        fetch(`${apiUrl}/user/data/id`, { // Replace with your actual endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

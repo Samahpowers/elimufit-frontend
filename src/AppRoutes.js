@@ -70,15 +70,34 @@ import PrimaryHolidayAssignments from './Components/PrimaryHolidayAssignments';
 import PrimaryHolidayAssignmentsDownload from './Components/PrimaryHolidayAssignmentsDownload';
 import JSSCurriculumDesignsDownload from './Components/JSSCurriculumDesignsDownload';
 import DeleteModal from './Components/DeleteModal';
+import JobOpportunities from './Components/Home';
+import VerticalNav from './Components/VerticalNav';
+import ToggleBox from './Components/ToggleBox';
+import SchoolResources from './Components/SchoolResources';
 
 
 const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIsLoggedIn, setUserId, setShowModal }) => (
-    <Routes>
+   
+   <Routes>
+        <Route path='/togle/box' element={<ToggleBox isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        <Route path='/vertical/nav' element={<VerticalNav isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/' element={<Home isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        <Route path='/school/resources' element={<SchoolResources isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        
         <Route path='/header' element={<Header isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/login' element={<Login isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />} />
         <Route path='/signup' element={<Signup isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />} />
+        <Route path='/job/opportunities' element={<JobOpportunities isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />}/>
+        
+       {isAdmin && (
+        <>
         <Route path='/support/upload/resources' element={<Support isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />} />
+        </>
+       )
+       
+       }
+      
+      
         <Route path='/subscription' element={<Subscribe userId={userId} />} />
         
 

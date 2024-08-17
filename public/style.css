@@ -1,5 +1,6 @@
-body{
+body {
     background-color: rgba(245, 245, 245, 0.9);
+    overflow: hidden;
 }
 
 .bg-custom {
@@ -8,4 +9,87 @@ body{
 
 .font-bold {
     font-weight: bold;
+}
+
+.toggle-Box {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    width: 40px; /* Width of the toggle box */
+    height: 40px; /* Height of the toggle box */
+    border-radius: 50%; /* Round shape for the box */
+    transition:  0.3s; /* Smooth background color transition */
+}
+
+.icon-container {
+    position: relative;
+    width: 24px; /* Width of the icon container */
+    height: 24px; /* Height of the icon container */
+    display: inline-block;
+}
+
+.icon-container::before,
+.icon-container::after,
+.icon-container .middle {
+    content: '';
+    position: absolute;
+    width: 24px; /* Width of the bars */
+    height: 2px; /* Height of the bars */
+    background-color: #fff; /* Color of the bars */
+    left: 0;
+    transition: transform 0.3s, opacity 0.3s; /* Smooth transitions for transform and opacity */
+}
+
+.icon-container::before {
+    top: 6px; /* Adjust the top bar position */
+}
+
+.icon-container::after {
+    top: 12px; /* Adjust the bottom bar position */
+}
+
+.icon-container .middle {
+    top: 18px; /* Position for the middle bar */
+}
+
+.toggle-Box.active .icon-container::before {
+    transform: rotate(45deg); /* Rotate to form one diagonal line */
+    top: 12px; /* Adjust top position when active */
+}
+
+.toggle-Box.active .icon-container::after {
+    transform: rotate(-45deg); /* Rotate to form the other diagonal line */
+    top: 12px; /* Adjust top position when active */
+}
+
+.toggle-Box.active .icon-container .middle {
+    opacity: 0; /* Hide the middle bar when active */
+}
+
+.menu-transition {
+    max-height: 100vh;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.menu-hidden {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.menu-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.custom-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adjust the values for desired shadow */
+}
+/* Define a custom button style with white outline */
+.btn-outline-white-custom {
+    border-color: white; /* White border */
+    color: white; /* White text color */
+}
+
+.btn-outline-white-custom:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Optional: Light background on hover */
+    border-color: white; /* Ensure border remains white on hover */
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { prePrimaryItems, primaryItems, schoolTittles, secondaryItems, jssItems } from "./schoolItems.js";
-import DynamicComponent from "./DynamicComponent";
+import config from "../config.js";
 import Modal from "./Modal";
 
 const ResourceLinks = ({ isSubscribed, isLoggedIn }) => {
@@ -14,7 +14,8 @@ const ResourceLinks = ({ isSubscribed, isLoggedIn }) => {
     console.log(data)
     const fetchData = async (path, value) => {
         try {
-            const res = await axios.get(`https://elimufiti.co.ke:8000/${path}/${value}`);
+            const apiUrl = config.API_BASE_URL;
+            const res = await axios.get(`${apiUrl}/${path}/${value}`);
             setData(res.data);
         } catch (err) {
             setError("Could not fetch data");

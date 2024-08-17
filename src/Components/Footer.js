@@ -10,7 +10,7 @@ const Footer = () => {
                         <Link to="/signup" className="text-white">Register / Renew Access</Link>
                         <p><strong>Contact us:</strong></p>
                         <ul className="list-unstyled">
-                            <li>Email: info@elimufiti</li>
+                            <li>Email: info@elimufiti.co.ke</li>
                             <li>Phone: 0710 00 00</li>
                             <li><a href="#" className="text-white">Whatsapp</a></li>
                         </ul>

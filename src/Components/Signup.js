@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { validationSignup } from "../middlewares/signupValdidations";
 import { useState } from "react";
-import Subscribe from "./Subscribtion.js"
+import config from "../config";
 
 const Signup = ({ isAdmin }) => {
     const [values, setValues] = useState({
@@ -28,7 +28,8 @@ const Signup = ({ isAdmin }) => {
         setErrors(formErrors);
 
         if (Object.values(formErrors).every(error => error === "")) {
-            axios.post("http://localhost:8000/api/signup", values)
+            const apiUrl = config.API_BASE_URL;
+            axios.post(`${apiUrl}/api/signup`, values)
                 .then((res) => {
                     console.log(res);
                     if (res.status === 201) {
@@ -119,7 +120,7 @@ const Signup = ({ isAdmin }) => {
 
                     <button type="submit" className="btn btn-success w-100">Sign Up</button>
                     
-                    <p>You agree on our terms and conditions</p>
+                    <radio>You agree on our terms and conditions</radio>
                     <Link to="/login" className="btn btn-default border w-100">Login</Link>
                 </form>
             </div>
