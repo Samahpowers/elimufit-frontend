@@ -40,6 +40,51 @@
   background-repeat: no-repeat;
   background-position: top left, top left;
 }
+.first-left-sm {
+  height: 100%;
+  max-width: 100%;
+  background: 
+    linear-gradient(to top left, 
+      rgba(253, 253, 253, 1) 0%, 
+      rgba(253, 253, 253, 0.8) 20%, 
+      rgba(253, 253, 253, 0.5) 50%, 
+      rgba(253, 253, 253, 0.3) 70%, 
+      rgba(253, 253, 253, 0.1) 90%, 
+      rgba(253, 253, 253, 0) 100%),
+    linear-gradient(to bottom right, 
+      rgba(253, 253, 253, 1) 0%, 
+      rgba(253, 253, 253, 0.8) 20%, 
+      rgba(253, 253, 253, 0.5) 50%, 
+      rgba(253, 253, 253, 0.3) 70%, 
+      rgba(253, 253, 253, 0.1) 90%, 
+      rgba(253, 253, 253, 0) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+}
+.first-left-accounts {
+
+  background: 
+    linear-gradient(to top left, 
+      rgba(253, 253, 253, 1) 0%, 
+      rgba(253, 253, 253, 0.8) 20%, 
+      rgba(253, 253, 253, 0.5) 50%, 
+      rgba(253, 253, 253, 0.3) 70%, 
+      rgba(253, 253, 253, 0.1) 90%, 
+      rgba(253, 253, 253, 0) 100%),
+    linear-gradient(to bottom right, 
+      rgba(253, 253, 253, 1) 0%, 
+      rgba(253, 253, 253, 0.8) 20%, 
+      rgba(253, 253, 253, 0.5) 50%, 
+      rgba(253, 253, 253, 0.3) 70%, 
+      rgba(253, 253, 253, 0.1) 90%, 
+      rgba(253, 253, 253, 0) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+}
+
+
 
 .font-weight-light {
   font-family: 'Lato', sans-serif;
@@ -77,6 +122,14 @@
   font-size: 0.9em; /* Adjust size as needed */
   line-height: 1.2; /* Adjust line height for spacing between lines */
 }
+.font-weight-medium-sm {
+  font-family: 'Roboto', sans-serif; /* Use a consistent font family */
+  font-weight: 700; /* Bolder medium weight */
+  font-size: 1.5em; /* Adjust size as needed */
+  letter-spacing: 0.05em; /* Adjust letter spacing if needed */
+  line-height: 1.4; /* Adjust line height for better spacing between lines */
+}
+
 
 /* Large Font Size for Small Screens */
 .large-font-sm {

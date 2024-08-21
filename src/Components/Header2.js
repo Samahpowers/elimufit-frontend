@@ -4,7 +4,7 @@ import logo from "../images/logo.PNG"
 import "../assets/header2.css";
 
 
-const Header2 = ({onClick}) => {
+const Header2 = ({onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribed}) => {
   const [verticalNavVisible, setVerticalNavVisible] = useState(false)
   const toggleClick = (e) => {
     e.preventDefault();

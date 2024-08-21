@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import Main from "./Main";
-import VerticalnavMenu from "./Vertical_nav._menu";
-import ToggleBox from "./ToggleBox";
-const SchoolResources = ({ isAdmin, userId, isLoggedIn, clearToken }) => {
-    // State to manage the visibility of the VerticalnavMenu
-    const [menuVisible, setMenuVisible] = useState(false);
+import ResourceLinks from './ResourceLinks';
 
-    // Toggle function to show/hide the VerticalnavMenu
-    const toggleMenu = () => {
-        setMenuVisible(!menuVisible);
-    };
+const SchoolResources = ({ isAdmin, userId, isLoggedIn, clearToken }) => {
 
     return (
         <div>
@@ -32,24 +24,20 @@ const SchoolResources = ({ isAdmin, userId, isLoggedIn, clearToken }) => {
                         <button className="btn btn-outline-primary bg-dark btn-sm ml-3" onClick={clearToken} style={{ whiteSpace: 'nowrap' }}>Log Out</button>
                     )}
                 </div>
-                <ToggleBox onClick={toggleMenu} /> {/* ToggleBox to handle menu visibility */}
+               
             </header>
 
-            <div className="container-fluid" style={{ padding: '0' }}>
-                <div className="container-fluid p-0">
-                    <div className="row g-0">
-                        <div className={`col-lg-2 ${menuVisible ? '' : 'd-none'} d-lg-block overflow-auto`} style={{ maxHeight: '100vh' }}>
-                            <VerticalnavMenu isAdmin={isAdmin} />
-                        </div>
-                        <div className="col-lg-10 overflow-auto" style={{ maxHeight: '100vh' }}>
-                            <Main 
-                                isAdmin={isAdmin}
-                                isLoggedIn={isLoggedIn}
-                            />
-                        </div>
+            <div className="container-fluid p-0" style={{ padding: '0', margin: '0' }}>
+                <div className="row g-0">
+                    <div className="col-12 overflow-auto" style={{ maxHeight: '100vh' }}>
+                        <ResourceLinks 
+                            isAdmin={isAdmin}
+                            isLoggedIn={isLoggedIn}
+                        />
                     </div>
                 </div>
-            </div>        
+            </div>
+
         </div>
     );
 };

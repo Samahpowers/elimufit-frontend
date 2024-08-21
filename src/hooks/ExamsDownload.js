@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import Modal from "../Components/Modal";
 import DeleteModal from '../Components/DeleteModal';
 import VerticalnavMenu from "../Components/Vertical_nav._menu";
@@ -39,7 +38,7 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
             </div>
             <div className="flex-grow-1" style={{ paddingTop: '60px' }}>
                 <div className="d-none d-lg-block" style={{ position: 'fixed', top: '60px', bottom: 0, left: 0, width: '200px', overflowY: 'auto' }}>
-                    <VerticalnavMenu />
+            
                 </div>
                 <div className="container-fluid" style={{ paddingRight: '10px' }}>
                     <div className="row">
@@ -84,9 +83,7 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
                     </div>
                 </div>
             </div>
-            <div className="justify-content-center align-items-center mt-auto">
-                <Footer />
-            </div>
+            
             
             <Modal show={showModal} handleClose={closeModal} isLoggedIn={isLoggedIn} isSubscribed={isSubscribed}>
                 {errorMessage}

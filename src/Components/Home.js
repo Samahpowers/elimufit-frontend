@@ -1,11 +1,19 @@
 import React from "react";
-import Header2 from "./Header2.js"
+import Header2 from "./Header2.js";
 import FirstContent from "./FirstContent.js";
-const Home =()=>{
+import SecondContent from "./SecondContent.js";
+import SecondContentSmallScreen from "./SecondContentSmallScreen.js";
+import Footer2 from "./Footer2"
+const Home = () => {
     return (
         <>
-        <Header2/>
-        <FirstContent/>
+            <div className="overflow-auto hide-scrollbar" style={{ maxHeight: '100vh' }}>
+                <Header2 />
+                <FirstContent />
+                <SecondContent />
+                <SecondContentSmallScreen/>
+                <Footer2/>
+            </div>
         </>
     )
 }

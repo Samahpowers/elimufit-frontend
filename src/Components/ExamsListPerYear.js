@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import VerticalnavMenu from './Vertical_nav._menu'
-import Footer from './Footer';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import config from '../config';
@@ -43,7 +42,7 @@ const ExamsList = ({ heading, items, navigateTo }) => {
         <div className="bg-opacity p-4" style={{ position: 'relative' }}>
             <div style={{ paddingTop: '60px' }}>
                 <div className="d-none d-lg-block" style={{ position: 'fixed', top: '60px', bottom: 0, left: 0, width: '250px', overflowY: 'auto' }}>
-                    <VerticalnavMenu />
+                   
                 </div>
                 <div className="container-fluid" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
                     <div className="row">
@@ -89,9 +88,7 @@ const ExamsList = ({ heading, items, navigateTo }) => {
                  
                 </div>
             </div>
-            <div>
-                                        <Footer />
-                                    </div>
+            
         </div>
     );
 };

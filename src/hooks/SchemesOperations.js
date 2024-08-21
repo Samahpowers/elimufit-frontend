@@ -90,9 +90,7 @@ export const SchemesDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSu
                     </div>
                 </div>
             </div>
-            <div className="justify-content-center align-items-center mt-auto">
-                <Footer />
-            </div>
+           
 
             <Modal show={showModal} handleClose={closeModal} isLoggedIn={isLoggedIn} isSubscribed={isSubscribed}>
                 {errorMessage}

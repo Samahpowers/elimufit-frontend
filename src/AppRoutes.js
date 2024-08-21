@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route , Navigate} from 'react-router-dom';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
@@ -72,35 +72,29 @@ import JSSCurriculumDesignsDownload from './Components/JSSCurriculumDesignsDownl
 import DeleteModal from './Components/DeleteModal';
 import JobOpportunities from './Components/Home';
 import VerticalNav from './Components/VerticalNav';
-import ToggleBox from './Components/ToggleBox';
+
 import SchoolResources from './Components/SchoolResources';
+import Header2 from './Components/Header2';
+import Footer2 from './Components/Footer2';
 
 
 const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIsLoggedIn, setUserId, setShowModal }) => (
+   <>
+   
    
    <Routes>
-        <Route path='/togle/box' element={<ToggleBox isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        
         <Route path='/vertical/nav' element={<VerticalNav isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/' element={<Home isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/school/resources' element={<SchoolResources isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        <Route path='#' element={<Header2 isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        <Route path='#' element={<Footer2 isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         
         <Route path='/header' element={<Header isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/login' element={<Login isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />} />
         <Route path='/signup' element={<Signup isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />} />
-        <Route path='/job/opportunities' element={<JobOpportunities isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />}/>
-        
-       {isAdmin && (
-        <>
-        <Route path='/support/upload/resources' element={<Support isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />} />
-        </>
-       )
-       
-       }
-      
-      
+        <Route path='/job/opportunities' element={<JobOpportunities isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />}/>    
         <Route path='/subscription' element={<Subscribe userId={userId} />} />
-        
-
         <Route 
         path="/play/group/exams" 
         element={<PlayGroup isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed} />}
@@ -361,15 +355,18 @@ const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIs
         <Route 
         path="/play/group/exams/download" 
         element={<PlayGroupDownload isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed}/>} 
-        />
-        
-        
-
-      
+        />      
         <Route path="/modal" element={<Modal isLoggedIn={isLoggedIn} setShowModal={setShowModal} isSubscribed={isSubscribed}/>} />
         <Route path="/delete/modal" element={<DeleteModal isLoggedIn={isLoggedIn} setShowModal={setShowModal} isSubscribed={isSubscribed}/>} />
         <Route path='*' element={<div>404 Not Found</div>} /> {/* Optional: Add a 404 page */}
     </Routes>
+    <Footer2
+     isSubscribed={isSubscribed} 
+     isLoggedIn={isLoggedIn} 
+     userId={userId} 
+     clearToken={clearToken} 
+    />
+    </>
 );
 
 export default AppRoutes;

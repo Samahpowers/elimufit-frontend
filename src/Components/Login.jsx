@@ -78,45 +78,46 @@ const Login = () => {
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center bg-dark vh-100">
-            <div className="bg-white p-3 rounded">
-                <h1>Sign In</h1>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="email" className="form-label"><strong>Email</strong></label>
-                        <input 
-                            type="email" 
-                            className="form-control" 
-                            id="email" 
-                            name="email" 
-                            placeholder="Enter email" 
-                            value={formData.email}
-                            onChange={handleInputChange} 
-                        />
-                        {errors.email && <span className="text-danger">{errors.email}</span>}
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="password" className="form-label"><strong>Password</strong></label>
-                        <input 
-                            type="password" 
-                            className="form-control" 
-                            id="password" 
-                            name="password" 
-                            placeholder="Enter password" 
-                            value={formData.password}
-                            onChange={handleInputChange} 
-                        />
-                        {errors.password && <span className="text-danger">{errors.password}</span>}
-                    </div>
-                    <button type="submit" className="btn btn-success w-100" disabled={loading}>
-                        {loading ? "Logging in..." : "Log in"}
-                    </button>
-                    
-                    <p>You agree on our terms and conditions</p>
-                    <Link to="/signup" className="btn btn-default border w-100">Create an Account</Link>
-                </form>
-            </div>
-        </div>
+        <div className="d-flex justify-content-center align-items-center custom-background vh-100">
+  <div className="first-left-accounts d-inline-block p-3 rounded" style={{ maxWidth: '400px', width: '100%' }}>
+    <h1>Sign In</h1>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label"><strong>Email</strong></label>
+        <input 
+          type="email" 
+          className="form-control" 
+          id="email" 
+          name="email" 
+          placeholder="Enter email" 
+          value={formData.email}
+          onChange={handleInputChange} 
+        />
+        {errors.email && <span className="text-danger">{errors.email}</span>}
+      </div>
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label"><strong>Password</strong></label>
+        <input 
+          type="password" 
+          className="form-control" 
+          id="password" 
+          name="password" 
+          placeholder="Enter password" 
+          value={formData.password}
+          onChange={handleInputChange} 
+        />
+        {errors.password && <span className="text-danger">{errors.password}</span>}
+      </div>
+      <button type="submit" className="btn btn-success w-100" disabled={loading}>
+        {loading ? "Logging in..." : "Log in"}
+      </button>
+      
+      <p>You agree on our terms and conditions</p>
+      <Link to="/signup" className="btn btn-default border w-100">Create an Account</Link>
+    </form>
+  </div>
+</div>
+
     );
 };
 

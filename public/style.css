@@ -1,7 +1,4 @@
-body {
-    background-color: rgba(245, 245, 245, 0.9);
-    overflow: hidden;
-}
+
 
 .bg-custom {
     background-color: rgb(223, 223, 223);
@@ -92,4 +89,56 @@ body {
 .btn-outline-white-custom:hover {
     background-color: rgba(255, 255, 255, 0.1); /* Optional: Light background on hover */
     border-color: white; /* Ensure border remains white on hover */
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* Internet Explorer and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+}
+@keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animated-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Container takes full width */
+    height: 100px; /* Adjust height as needed */
+  }
+  
+  .animated-content {
+    display: flex;
+    width: 200%; /* Ensure the width is twice the container width */
+    animation: scroll-left 10s linear infinite; /* Adjust timing for smooth continuous scroll */
+  }
+  
+  .card-wrapper {
+    flex: 0 0 50%; /* Each wrapper takes up half of the animated-content width */
+  }
+  .overflow-auto {
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Webkit browsers */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+/* Ensure smooth scrolling */
+.animated-content {
+    scroll-behavior: smooth;
 }

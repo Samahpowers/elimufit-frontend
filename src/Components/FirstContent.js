@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/first-content.css"
-import "../assets/header2.css"
+
 const FirstContent = () => {
   return (
-    <div className="custom-background d-flex flex-column">
+    <div className="custom-background d-flex flex-column ">
 
       {/* Large Screen Section */}
       <div className="first-left-lg d-none d-lg-flex flex-column min-vh-100">
@@ -27,19 +27,23 @@ const FirstContent = () => {
 
       {/* Small Screen Section */}
       <div className="first-left-sm d-flex d-lg-none flex-column min-vh-100">
-        <h1 className="mt-4 ms-2 ps-2 pt-3">
-          <span className="font-weight-light-sm large-font-sm text-warm">Welcome to</span><br />
-          <span className="font-weight-bold-sm text-silver">Your hub for school resources &</span><br />
-          <span className="font-weight-bold-sm text-silver">job connections™</span><br />
-        </h1>
-        <div className="ms-2 ps-2 pt-5 text-platinum">
+      <h1 className="mt-4 ms-2 ps-2 pt-3 text-charcoal text-center">
+        <span className="font-weight-light-lg large-font-sm text-charcoal">Welcome to</span><br /><br/>
+        <span className="font-weight-bold-sm text-charcoal">Your hub for school resources &</span><br />
+        <span className="font-weight-bold-sm text-charcoal">job connections™</span><br />
+      </h1>
+
+        <div className="ms-2 ps-2 pt-2 accursed-black font-weight-medium-sm">
+        <div className="text-center mt-4 mb-4">
           <h4>We provide the tools for academic success and</h4>
           <h4>connect you with exciting job opportunities.</h4>
+        </div>
+
         <div className="d-flex mt-5 pt-2">
           <Link to="/school/resources">
-            <button className="btn btn-primary px-3 mx-2 small-width-btn">School Resources</button>
+            <button className="btn btn-primary px-2 mx-2 small-width-btn">School Resources</button>
           </Link>
-          <button className="btn btn-primary px-3 mx-2 small-width-btn">Get Started</button>
+          <button className="btn btn-primary px-2 mx-2 small-width-btn">Get Started</button>
         </div>
 
         </div>

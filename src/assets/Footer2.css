@@ -1,0 +1,48 @@
+.footer-list li {
+    display: inline;
+    margin-right: 10px; /* Adjust spacing as needed */
+    position: relative;
+  }
+  
+  .footer-list li::after {
+    content: '|'; /* The vertical line */
+    margin-left: 10px; /* Space between the text and the line */
+    color:  #d3d3d3;
+  }
+  
+  .footer-list li:last-child::after {
+    content: ''; /* Removes the line after the last item */
+  }
+/* Footer2.css */
+.footer-link {
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+/* Footer2.css */
+.footer-link-bold {
+    font-weight: bold; /* Make the text bold */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .footer-link-bold:hover {
+    text-decoration: none; /* Keep underline removed on hover */
+  }
+/* Footer2.css */
+.list-unstyled a {
+    text-decoration: none; /* Remove underline from all links */
+  }
+  
+  .list-unstyled a:hover {
+    text-decoration: none; /* Ensure underline is not added on hover */
+  }
+/* Footer2.css */
+.bg-custom-dark {
+    background-color: #343a40; /* A lighter shade of dark */
+  }
+  .custom-footer-text {
+    color: #d3d3d3; /* Lighter gray color for good contrast on dark background */
+  }          

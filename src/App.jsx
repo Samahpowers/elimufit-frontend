@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
-import {jwtDecode} from 'jwt-decode'; // Correct import syntax
+import { jwtDecode } from 'jwt-decode';
 import { clearToken } from './utils';
 import config from './config';
+
 const App = () => {
     const [isSubscribed, setIsSubscribed] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -17,9 +18,9 @@ const App = () => {
                 try {
                     const decodedToken = jwtDecode(token);
                     console.log('Decoded token:', decodedToken);
-                    
+
                     setUserId(decodedToken.userId);
-                    setIsAdmin(decodedToken.isAdmin === "1");
+                    setIsAdmin(decodedToken.isAdmin === "1"); // Adjust based on your token's isAdmin format
                     setIsLoggedIn(true);
 
                     console.log('User ID:', decodedToken.userId);
@@ -33,7 +34,7 @@ const App = () => {
         };
 
         checkAuthentication();
-    }, []);
+    }, []); // Runs once on component mount
 
     useEffect(() => {
         const fetchSubscriptionStatus = async () => {
@@ -45,7 +46,7 @@ const App = () => {
                     const response = await fetch(url);
                     const data = await response.json();
                     if (response.ok) {
-                        const subscriptionStatus = data.Amount > 0; // Determine if subscribed based on Amount
+                        const subscriptionStatus = data.Amount > 0;
                         setIsSubscribed(subscriptionStatus);
                     } else {
                         console.error('Subscription fetch error:', data.message);
@@ -57,13 +58,13 @@ const App = () => {
         };
 
         fetchSubscriptionStatus();
-    }, [userId]);
+    }, [userId]); // Runs whenever userId changes
 
     useEffect(() => {
         console.log("isSubscribed updated to:", isSubscribed);
         console.log("isLoggedIn updated to:", isLoggedIn);
         console.log("isAdmin updated to:", isAdmin);
-    }, [isSubscribed, isLoggedIn, isAdmin]);
+    }, [isSubscribed, isLoggedIn, isAdmin]); // Logs updates to these states
 
     return (
         <BrowserRouter>
@@ -78,6 +79,6 @@ const App = () => {
             />
         </BrowserRouter>
     );
-}
+};
 
 export default App;
