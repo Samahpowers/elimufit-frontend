@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import Modal from "../Components/Modal";
 import DeleteModal from '../Components/DeleteModal';
-import VerticalnavMenu from "../Components/Vertical_nav._menu";
 import { useDownloadHandler, useDeleteHandler } from './useResourceOperations';
 
 export const SchemesDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed }) => {
@@ -46,12 +44,10 @@ export const SchemesDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSu
                 <Header isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed} />
             </div>
             <div className="flex-grow-1" style={{ paddingTop: '60px' }}>
-                <div className="d-none d-lg-block" style={{ position: 'fixed', top: '60px', bottom: 0, left: 0, width: '200px', overflowY: 'auto' }}>
-                    <VerticalnavMenu />
-                </div>
+                
                 <div className="container-fluid" style={{ paddingRight: '10px' }}>
                     <div className="row">
-                        <div className="col-12 col-lg-10 offset-lg-2 pl-0 pl-lg-5">
+                        <div className="col-12 col-lg-10  pl-0 pl-lg-5">
                             <h1 className="text-center my-4 py-4">{heading}</h1>
                             <h2 className="text-center my-4" style={{ textDecoration: 'underline' }}>{selectedItem.year}</h2>
                             <div className="list-group mt-4">

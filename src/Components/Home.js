@@ -12,7 +12,7 @@ const Home = () => {
                 <FirstContent />
                 <SecondContent />
                 <SecondContentSmallScreen/>
-                <Footer2/>
+                
             </div>
         </>
     )

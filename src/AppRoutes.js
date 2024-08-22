@@ -73,9 +73,10 @@ import DeleteModal from './Components/DeleteModal';
 import JobOpportunities from './Components/Home';
 import VerticalNav from './Components/VerticalNav';
 
-import SchoolResources from './Components/SchoolResources';
+
 import Header2 from './Components/Header2';
 import Footer2 from './Components/Footer2';
+import ResourceLinks from './Components/ResourceLinks';
 
 
 const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIsLoggedIn, setUserId, setShowModal }) => (
@@ -86,7 +87,7 @@ const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIs
         
         <Route path='/vertical/nav' element={<VerticalNav isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/' element={<Home isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
-        <Route path='/school/resources' element={<SchoolResources isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        <Route path='/school/resources' element={<ResourceLinks isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='#' element={<Header2 isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='#' element={<Footer2 isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         
