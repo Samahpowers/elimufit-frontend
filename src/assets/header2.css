@@ -72,4 +72,11 @@
     opacity: 0;
     max-height: 0;
   }
+  .header2-container {
+    position: sticky; /* or use fixed if you want it always visible even when not scrolled */
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+    background-color: #004170; /* Use a background color to prevent transparency issues */
+    width: 100%;
+  }
   

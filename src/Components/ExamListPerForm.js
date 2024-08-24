@@ -36,7 +36,7 @@ const ExamsList = ({ heading, items, navigateTo }) => {
 
     return (
         <div className="bg-opacity p-4" style={{ position: 'relative' }}>
-            <div style={{ paddingTop: '60px' }}>
+            <div >
                 
                 <div className="container-fluid" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
                     <div className="row">

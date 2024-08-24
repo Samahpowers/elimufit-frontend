@@ -1,34 +1,32 @@
 import React, { useState } from "react";
 import VerticalNav from "./VerticalNav"; // Import the VerticalNav component
-import logo from "../images/logo.PNG"
+import logo from "../images/logo.PNG";
 import "../assets/header2.css";
 
+const Header2 = ({ onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribed }) => {
+  console.log("isLogged in in Header2 updated to:", isLoggedIn);
+  
+  const [verticalNavVisible, setVerticalNavVisible] = useState(false);
 
-const Header2 = ({onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribed}) => {
-  const [verticalNavVisible, setVerticalNavVisible] = useState(false)
   const toggleClick = (e) => {
     e.preventDefault();
     e.currentTarget.classList.toggle('active');
-    // Toggle verticalNavVisible between true and false
     setVerticalNavVisible(prevState => !prevState);
     
     if (onClick) {
-        onClick(e);
+      onClick(e);
     }
-}
+  };
 
   return (
-    <div className="container-fluid bg-#004170 text-white p-2 d-flex justify-content-between header2-container">
-      
+    <div className="header2-container container-fluid text-white p-2 d-flex justify-content-between">
       <nav className="d-flex flex-start">
         <ul className="nav">
-        <img src={logo} alt="Logo" style={{ width: '35px', height: '35px', borderRadius: '50%' }} />
-
+          <img src={logo} alt="Logo" style={{ width: '35px', height: '35px', borderRadius: '50%' }} />
           <li className="nav-item dropdown d-none d-md-block">
-            <a className="nav-link text-white" href="#howitworks" >
+            <a className="nav-link text-white" href="#howitworks">
               How it works
             </a>
-            
           </li>
           <li className="nav-item dropdown d-none d-md-block">
             <a className="nav-link dropdown-toggle text-white" href="#solutions" id="dropdownMenuButton2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,7 +45,6 @@ const Header2 = ({onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribed
             <ul className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton3">
               <li><a className="dropdown-item" href="/school/resources">School Resources</a></li>
               <li><a className="dropdown-item" href="#resource2">Job Opportunities</a></li>
-              
             </ul>
           </li>
           <li className="nav-item dropdown d-none d-md-block">
@@ -60,37 +57,50 @@ const Header2 = ({onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribed
               <li><a className="dropdown-item" href="#values">Our Values</a></li>
             </ul>
           </li>
-          <li className="nav-item  d-none d-md-block">
-            <a className="nav-link  text-white" href="#contact"   aria-expanded="false">
+          <li className="nav-item d-none d-md-block">
+            <a className="nav-link text-white" href="#contact">
               Contact
             </a>
-            
           </li>
-          <li className="nav-item  d-none d-md-block">
-            <a className="nav-link  text-white" href="/signup" >
+          <li className="nav-item d-none d-md-block">
+            <a className="nav-link text-white" href="/signup">
               Sign In
             </a>
-           
           </li>
         </ul>
       </nav>
-      <li className="nav-item dropdown d-none d-md-block">
-            <a className="nav-link dropdown-toggle text-white" href="#about" id="dropdownMenuButton4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              For Job Seekers
-            </a>
-            <ul className="dropdown-menu mt-4" >
-              <li><a className="dropdown-item" href="#team">Home</a></li>
-              <li><a className="dropdown-item" href="#mission">Search Jobs</a></li>
-              <li><a className="dropdown-item" href="#values">Join Now</a></li>
-              <li><a className="dropdown-item" href="/signup">Sign In</a></li>
-            </ul>
-          </li>
-          <a href="#toggle" className="toggle-Box d-block d-sm-none "onClick={toggleClick} >
-            <span className="icon-container">
-                <span className="middle"></span>
-            </span>
-        </a>
-        {verticalNavVisible && <VerticalNav />}
+      <li className="nav-item d-none d-md-block">
+        <li className="d-flex align-items-center">
+          {isLoggedIn ? (
+            <div className="justify-center">
+              <span 
+                className="btn btn-outline-light btn-sm" 
+                onClick={() => clearToken()} 
+                style={{ whiteSpace: 'nowrap' }}
+              >
+                <i className="bi bi-power"></i> {/* Power icon for Log Out */}
+              </span>
+            </div>
+          ) : (
+            <p className="qwitcher-grypen-bold">
+              elimufiti learning solutions
+            </p>
+          )}
+        </li>
+      </li>
+      <a href="#toggle" className="toggle-Box d-block d-sm-none" onClick={toggleClick}>
+        <span className="icon-container">
+          <span className="middle"></span>
+        </span>
+      </a>
+      {verticalNavVisible && (
+        <VerticalNav
+          isSubscribed={isSubscribed}
+          isLoggedIn={isLoggedIn}
+          userId={userId}
+          clearToken={clearToken}
+        />
+      )}
     </div>
   );
 };

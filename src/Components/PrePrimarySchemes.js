@@ -1,7 +1,7 @@
 // src/components/PP2Exams.js
 import React from 'react';
 import ExamsList from './ExamsListPerYear';
-import Header from './Header';
+
 
 const PrePrimarySchemes = ({ isLoggedIn, clearToken }) => {
     const items = [
@@ -14,9 +14,7 @@ const PrePrimarySchemes = ({ isLoggedIn, clearToken }) => {
 
     return (
         <>
-        <Header
-         isLoggedIn={isLoggedIn}
-         clearToken={clearToken}/>
+       
         <ExamsList           
             heading="PRE PRIMARY SCHEMES"
             items={items}

@@ -22,13 +22,7 @@ const Modal = ({ show, handleClose, isSubscribed, children, isLoggedIn }) => {
                     </div>
                     <div className="modal-body text-black">
                         {children}
-                        <div className="text-decoration-none text-dark mt-0">
-                            {isLoggedIn 
-                                ? isSubscribed 
-                                    ? <p>You need to take action to download.</p> 
-                                    : <p>You must subscribe to download.</p> 
-                                : <p>You must log in to download.</p>}
-                        </div>
+                        
                         {/*Redirectionto either subscribe or login*/}
                         <div className="text-decoration-underline text-primary mt-3" style={{ cursor: 'pointer' }} onClick={handleLoginSignupClick}>
                             {isLoggedIn 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 import { prePrimaryItems, primaryItems, schoolTittles, secondaryItems, jssItems } from "./schoolItems.js";
 import config from "../config.js";
-import Modal from "./Modal";
-import Header from "./Header.js";
+
+
 
 const ResourceLinks = ({ isAdmin, userId, isLoggedIn, clearToken }) => {
     const [selectedItem, setSelectedItem] = useState(null);
@@ -92,29 +92,10 @@ const ResourceLinks = ({ isAdmin, userId, isLoggedIn, clearToken }) => {
 
     return (
         <>
-       <header className="container-fluid d-flex p-3 bg-success" style={{ position: 'sticky', top: 0, zIndex: 1000 }}>
-              
-                
-              <div className="flex-grow-1 d-flex justify-content-center">
-                  {!isLoggedIn && (
-                      <Link to="/login" className="text-white border px-4 py-2 text-decoration-none rounded d-inline-block">Login / Renew Access</Link>
-                  )}
-              </div>
-              
-              <div>
-                  {/* {userId} {/*To set user profile later */ }
-              </div>
-              
-              <div>
-                  {isLoggedIn && (
-                      <button className="btn btn-outline-primary bg-dark btn-sm ml-3" onClick={clearToken} style={{ whiteSpace: 'nowrap' }}>Log Out</button>
-                  )}
-              </div>
-             
-          </header>
+     
         
         
-        <div className="container-fluid bg-dark text-white">
+        <div className="container-fluid bg-dark text-white ">
             <section className="py-4">
                 
 

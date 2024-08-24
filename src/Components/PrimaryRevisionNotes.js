@@ -1,6 +1,6 @@
 // src/components/PP2Exams.js
 import React from 'react';
-import Header from './Header';
+
 import ExamsList from './ExamsListPerYear';
 
 const PrimaryRevisionNotes = ({ isLoggedIn, clearToken }) => {
@@ -13,9 +13,7 @@ const PrimaryRevisionNotes = ({ isLoggedIn, clearToken }) => {
 
     return (
        <>
-       <Header
-        isLoggedIn={isLoggedIn}
-        clearToken={clearToken}/>
+      
         <ExamsList
            
             heading="PRIMARY REVISION NOTES"

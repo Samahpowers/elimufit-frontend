@@ -7,7 +7,7 @@ import Subscribe from './Components/Subscribtion';
 import Support from './Components/Support';
 import PlayGroup from './Components/PlayGroup';
 import PlayGroupDownload from './Components/PlayGroupDownload';
-import Header from './Components/Header';
+
 import Modal from './Components/Modal';
 import PP1Exams from './Components/PP1Exams';
 import PP1ExamsDownload from './Components/PP1ExamsDownload';
@@ -81,17 +81,22 @@ import ResourceLinks from './Components/ResourceLinks';
 
 const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIsLoggedIn, setUserId, setShowModal }) => (
    <>
-   
+    <Header2
+     isSubscribed={isSubscribed} 
+     isLoggedIn={isLoggedIn} 
+     userId={userId} 
+     clearToken={clearToken} 
+    />
    
    <Routes>
         
         <Route path='/vertical/nav' element={<VerticalNav isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/' element={<Home isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/school/resources' element={<ResourceLinks isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
-        <Route path='#' element={<Header2 isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
-        <Route path='#' element={<Footer2 isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+       
+       
         
-        <Route path='/header' element={<Header isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+       
         <Route path='/login' element={<Login isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />} />
         <Route path='/signup' element={<Signup isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />} />
         <Route path='/job/opportunities' element={<JobOpportunities isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />}/>    

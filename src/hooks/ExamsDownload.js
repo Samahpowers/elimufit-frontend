@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Header from "../Components/Header";
+
 import Modal from "../Components/Modal";
 import DeleteModal from '../Components/DeleteModal';
 import { useDownloadHandler, useDeleteHandler } from './useResourceOperations';
@@ -33,7 +33,7 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
     return (
         <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
             <div style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1030 }}>
-                <Header isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed} />
+              
             </div>
             <div className="flex-grow-1" style={{ paddingTop: '60px' }}>
                

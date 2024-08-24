@@ -1,7 +1,7 @@
 // src/components/PP2Exams.js
 import React from 'react';
 import ExamsList from './ExamsListPerYear';
-import Header from './Header';
+
 
 const KCSEtrialExaminations = ({ isLoggedIn, clearToken }) => {
     const items = [
@@ -13,9 +13,7 @@ const KCSEtrialExaminations = ({ isLoggedIn, clearToken }) => {
 
     return (
         <>
-        <Header
-         isLoggedIn={isLoggedIn}
-         clearToken={clearToken}/>
+        
         <ExamsList           
             heading="KCSE TRIAL EXAMINATIONS"
             items={items}

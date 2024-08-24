@@ -1,7 +1,7 @@
 // src/components/PP2Exams.js
 import React from 'react';
 import ExamsList from './ExamsListPerYear';
-import Header from './Header';
+
 
 const Grade8Examinations = ({ isLoggedIn, clearToken }) => {
     const items = [
@@ -13,9 +13,7 @@ const Grade8Examinations = ({ isLoggedIn, clearToken }) => {
 
     return (
         <>
-        <Header
-         isLoggedIn={isLoggedIn}
-         clearToken={clearToken}/>
+
         <ExamsList           
             heading="GRADE 8"
             items={items}

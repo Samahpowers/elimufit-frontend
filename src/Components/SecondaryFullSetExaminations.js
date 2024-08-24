@@ -1,6 +1,6 @@
 // src/components/PP2Exams.js
 import React from 'react';
-import Header from './Header';
+
 import ExamsList from './ExamsListPerYear';
 
 const SecondaryFullSetExaminations = ({ isLoggedIn, clearToken }) => {
@@ -13,9 +13,7 @@ const SecondaryFullSetExaminations = ({ isLoggedIn, clearToken }) => {
 
     return (
        <>
-       <Header
-        isLoggedIn={isLoggedIn}
-        clearToken={clearToken}/>
+    
         <ExamsList
            
             heading="SECONDARY SCHOOL FULL SET EXAMINATIONS SECTION"

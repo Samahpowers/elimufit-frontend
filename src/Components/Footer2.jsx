@@ -20,46 +20,48 @@ const Footer2 = () => {
           </div>
           {/* Column 2 */}
           <div className="col-12 col-md-2 mb-4">
-            <a className="footer-link-bold text-light mb-3" href="#">HIRING</a>
+            <a className="footer-link-bold text-light mb-3" href="#">JOB SEEKERS</a>
             <ul className="list-unstyled custom-footer-text py-2">
-              <li><a className="custom-footer-text" href="#">Teaching Staff</a></li>
-              <li><a className="custom-footer-text" href="#">Parents</a></li>
-              <li><a className="custom-footer-text" href="#">Students</a></li>
-              <li><a className="custom-footer-text" href="#">Schools</a></li>
-              <li><a className="custom-footer-text" href="#">Teachers' Networks</a></li>
+              <li><a className="custom-footer-text" href="#">Explore Company Profiles</a></li>
+              <li><a className="custom-footer-text" href="#">Apply for Jobs</a></li>
+              <li><a className="custom-footer-text" href="#">Access Skill Training Programs</a></li>
+              <li><a className="custom-footer-text" href="#">Get Resume Writing Services</a></li>
+              <li><a className="custom-footer-text" href="#">Sign Up for Job Seeker Account</a></li>
             </ul>
           </div>
           {/* Column 3 */}
           <div className="col-12 col-md-2 mb-4">
-            <a className="footer-link-bold text-light mb-3" href="#">JOB SEEKERS</a>
+            <a className="footer-link-bold text-light mb-3" href="#">HIRING</a>
             <ul className="list-unstyled custom-footer-text py-2">
-              <li><a className="custom-footer-text" href="#">Teaching Staff</a></li>
-              <li><a className="custom-footer-text" href="#">Parents</a></li>
-              <li><a className="custom-footer-text" href="#">Students</a></li>
-              <li><a className="custom-footer-text" href="#">Schools</a></li>
-              <li><a className="custom-footer-text" href="#">Teachers' Networks</a></li>
+              <li><a className="custom-footer-text" href="#">Sign Up for Employer Account</a></li>
+              <li><a className="custom-footer-text" href="#">Search Candidates by Skillset</a></li>
+              <li><a className="custom-footer-text" href="#">Create Company Profile</a></li>
+              <li><a className="custom-footer-text" href="#">Browse Candidate Database</a></li>
+              <li><a className="custom-footer-text" href="#">Employer Branding Resources</a></li>
             </ul>
           </div>
           {/* Column 4 */}
           <div className="col-12 col-md-2 mb-4">
             <a className="footer-link-bold text-light mb-3" href="#">ABOUT</a>
             <ul className="list-unstyled custom-footer-text py-2">
-              <li><a className="custom-footer-text" href="#">Teaching Staff</a></li>
-              <li><a className="custom-footer-text" href="#">Parents</a></li>
-              <li><a className="custom-footer-text" href="#">Students</a></li>
-              <li><a className="custom-footer-text" href="#">Schools</a></li>
-              <li><a className="custom-footer-text" href="#">Teachers' Networks</a></li>
+              <li><a className="custom-footer-text" href="#">Meet the Team</a></li>
+              <li><a className="custom-footer-text" href="#">Careers at Our Company</a></li>
+              <li><a className="custom-footer-text" href="#">Customer Testimonials</a></li>
+              <li><a className="custom-footer-text" href="#">Our Partners</a></li>
+              <li><a className="custom-footer-text" href="#">Our Offices & Locations</a></li>
+              <li><a className="custom-footer-text" href="#">Contact Us</a></li>
             </ul>
           </div>
           {/* Column 5 */}
           <div className="col-12 col-md-2 mb-4">
             <a className="footer-link-bold text-light mb-3" href="#">CONNECT WITH E.L.S</a>
             <ul className="list-unstyled custom-footer-text py-2">
-              <li><a className="custom-footer-text" href="#">Teaching Staff</a></li>
-              <li><a className="custom-footer-text" href="#">Parents</a></li>
-              <li><a className="custom-footer-text" href="#">Students</a></li>
-              <li><a className="custom-footer-text" href="#">Schools</a></li>
-              <li><a className="custom-footer-text" href="#">Teachers' Networks</a></li>
+              <li><a className="custom-footer-text" href="#">Follow Us on Facebook</a></li>
+              <li><a className="custom-footer-text" href="#">Follow Us on Instagram</a></li>
+              <li><a className="custom-footer-text" href="#">Contact Our Support Team</a></li>
+              <li><a className="custom-footer-text" href="#">Connect with Us on WhatsApp</a></li>
+              <li><a className="custom-footer-text" href="#">Schedule a Consultation</a></li>
+              <li><a className="custom-footer-text" href="#">Connect via Phone or SMS</a></li>
             </ul>
           </div>
         </div>

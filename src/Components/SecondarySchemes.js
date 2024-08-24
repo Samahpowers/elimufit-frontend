@@ -1,7 +1,7 @@
 // src/components/PP2Exams.js
 import React from 'react';
 import ExamsList from './ExamsListPerYear';
-import Header from './Header';
+
 
 const SecondarySchemes = ({ isLoggedIn, clearToken }) => {
     const items = [
@@ -13,9 +13,7 @@ const SecondarySchemes = ({ isLoggedIn, clearToken }) => {
 
     return (
         <>
-        <Header
-         isLoggedIn={isLoggedIn}
-         clearToken={clearToken}/>
+        
         <ExamsList           
             heading="SECONDARY SCHEMES"
             items={items}
