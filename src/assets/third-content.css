@@ -1,0 +1,35 @@
+.custom-gradient-shadow {
+    position: relative;
+  }
+  
+  .custom-gradient-shadow  {
+    display: block;
+    width: 100%;
+    height: auto; /* Adjust height based on your needs */
+    box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.7); /* Black shadow on the left side */
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent); /* Gradient mask */
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), transparent); /* Gradient mask */
+  }
+  
+  .stats-number {
+    font-size: 5rem;    
+    font-weight: bold !important;
+    color:  #d3d3d3 !important;
+  }
+  
+  
+  .stats-border {
+    display: inline-block; /* Ensures the p tag takes the width of its content */
+    position: relative; /* Creates a positioning context for the pseudo-element */
+  }
+  
+  .stats-border::after {
+    content: ""; /* Pseudo-element content */
+    display: block; /* Behaves like a block-level element */
+    width: 100%; /* Matches the width of the parent p tag */
+    height: 2px; /* Thickness of the pseudo-element */
+    background-color: rgb(192, 192, 116); /* Yellowish background color */
+    position: absolute; /* Position the pseudo-element relative to the p tag */
+    bottom: -6px; /* Places the pseudo-element below the text */
+    left: 0; /* Align the pseudo-element to the left of the p tag */
+  }
