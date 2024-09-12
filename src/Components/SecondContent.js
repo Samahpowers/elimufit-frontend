@@ -4,7 +4,7 @@ import Card from './Card';
 
 const SecondContent = () => {
     return (
-        <div className="container-fluid">
+        <div className="container-fluid " style={{ backgroundColor: 'white' }}>
             <div className="mx-auto py-2 d-none d-md-block" style={{ maxWidth: '1200px', width: '90%' }}>
                 <div>
                     <h1 className="text-center">ElimuFiti Learning Solutions</h1>

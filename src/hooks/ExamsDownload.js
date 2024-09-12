@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-
 import Modal from "../Components/Modal";
 import DeleteModal from '../Components/DeleteModal';
 import { useDownloadHandler, useDeleteHandler } from './useResourceOperations';
@@ -33,13 +32,12 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
     return (
         <div className="d-flex flex-column" style={{ minHeight: '100vh' }}>
             <div style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1030 }}>
-              
+                {/* Top content if needed */}
             </div>
             <div className="flex-grow-1" style={{ paddingTop: '60px' }}>
-               
                 <div className="container-fluid" style={{ paddingRight: '10px' }}>
                     <div className="row">
-                        <div className="col-12 col-lg-10  pl-0 pl-lg-5">
+                        <div className="col-12 col-lg-10 pl-0 pl-lg-5">
                             <h1 className="text-center my-4 py-4">{heading}</h1>
                             <h2 className="text-center my-4" style={{ textDecoration: 'underline' }}>{selectedItem.year}</h2>
                             <div className="list-group mt-4">
@@ -54,7 +52,13 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
                                                         className="my-4 custom-font text-decoration-none"
                                                         onClick={(e) => {
                                                             e.preventDefault();
-                                                            handleDownloadExam(selectedItem.path, item.id, selectedItem.value, item.fileName);
+                                                            // Pass the actual fileName parameter to handleDownloadExam
+                                                            handleDownloadExam(
+                                                                selectedItem.path, 
+                                                                item.id, 
+                                                                selectedItem.value, 
+                                                                item.examMS
+                                                            );
                                                         }}
                                                         style={{ fontFamily: 'Copperplate, Copperplate Gothic Light, serif' }}
                                                     >
@@ -80,12 +84,11 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
                     </div>
                 </div>
             </div>
-            
-            
+
             <Modal show={showModal} handleClose={closeModal} isLoggedIn={isLoggedIn} isSubscribed={isSubscribed}>
                 {errorMessage}
             </Modal>
-            
+
             {showDeleteModal && (
                 <DeleteModal
                     show={showDeleteModal}

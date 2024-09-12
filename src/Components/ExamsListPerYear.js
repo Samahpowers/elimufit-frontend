@@ -13,11 +13,12 @@ const ExamsList = ({ heading, items, navigateTo }) => {
             setLoading(true);
             setError(null);
             const apiUrl = config.API_BASE_URL;
-           
+           //http://localhost:8000/pre/primary/pp2/exams/2024
             const url = `${apiUrl}/${path}/${value}/${year}`;
             console.log('the fetched url is:', url)
+
             const res = await axios.get(url);
-          
+        
             navigate(navigateTo, { state: { data: res.data, selectedItem: { path, value, year } } });
         } catch (error) {
             setError("Error fetching data, please try again later.");

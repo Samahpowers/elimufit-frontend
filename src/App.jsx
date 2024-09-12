@@ -6,7 +6,8 @@ import { clearToken } from './utils';
 import config from './config';
 
 const App = () => {
-    const [isSubscribed, setIsSubscribed] = useState(false); // Initial state as false
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isSubscribed, setIsSubscribed] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userId, setUserId] = useState(null);
 
@@ -16,32 +17,37 @@ const App = () => {
         if (token) {
             try {
                 const decodedToken = jwtDecode(token);
-                setUserId(decodedToken.userId);
+                const [userId, isSubscribedRaw, isAdminRaw] = decodedToken.payload;
+                
+                setUserId(userId);
+                setIsAdmin(Boolean(isAdminRaw)); // Convert to true/false
+                setIsSubscribed(Boolean(Number(isSubscribedRaw))); // Convert to true/false
                 setIsLoggedIn(true);
             } catch (error) {
                 console.error('Error decoding token:', error);
                 clearToken(setIsLoggedIn, setUserId, setIsSubscribed);
             }
+        } else {
+            // No token, user is not logged in
+            setIsLoggedIn(false);
         }
     }, []);
 
-    // Fetch subscription status when userId is set
+    // Fetch subscription status when userId is set (if not included in the token)
     useEffect(() => {
         const fetchSubscriptionStatus = async () => {
-            if (userId) {
+            if (userId) { // Only fetch if userId is available
                 try {
                     const apiUrl = config.API_BASE_URL;
                     const url = `${apiUrl}/api/subscriptions/status/${userId}`;
                     console.log('Fetching subscription status from URL:', url);
-                    
+
                     const response = await fetch(url);
                     const data = await response.json();
 
                     if (response.ok) {
                         const subscriptionStatus = data.Amount > 0; // Assuming Amount indicates subscription
                         setIsSubscribed(subscriptionStatus);
-
-                        // Update localStorage
                         localStorage.setItem('isSubscribed', subscriptionStatus.toString());
                     } else {
                         console.error('Subscription fetch error:', data.message);
@@ -55,22 +61,23 @@ const App = () => {
         fetchSubscriptionStatus();
     }, [userId]);
 
-    // Sync `isSubscribed` with localStorage (if needed)
+    // Sync `isSubscribed` with localStorage on initial load
     useEffect(() => {
         const storedSubscriptionStatus = localStorage.getItem('isSubscribed');
         if (storedSubscriptionStatus !== null) {
             setIsSubscribed(storedSubscriptionStatus === 'true');
         }
-    }, []); // Runs on initial load to sync with localStorage
+    }, []);
 
-    // Log when `isSubscribed` changes
+    // Log when `isSubscribed` or `isAdmin` changes
     useEffect(() => {
         console.log("isSubscribed updated to:", isSubscribed);
-    }, [isSubscribed]);
+        console.log("isAdmin updated to:", isAdmin);
+    }, [isSubscribed, isAdmin]);
 
     return (
         <BrowserRouter>
-            <AppRoutes 
+            <AppRoutes
                 isSubscribed={isSubscribed}
                 isLoggedIn={isLoggedIn}
                 userId={userId}

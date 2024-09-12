@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Modal = ({ show, handleClose, isSubscribed, children, isLoggedIn }) => {
+const Modal = ({ show, handleClose, isSubscribed, isLoggedIn, children }) => {
     const handleLoginSignupClick = () => {
         const targetUrl = isLoggedIn ? "/subscription" : "/login"; 
         window.location.href = targetUrl;
@@ -22,14 +22,18 @@ const Modal = ({ show, handleClose, isSubscribed, children, isLoggedIn }) => {
                     </div>
                     <div className="modal-body text-black">
                         {children}
-                        
-                        {/*Redirectionto either subscribe or login*/}
-                        <div className="text-decoration-underline text-primary mt-3" style={{ cursor: 'pointer' }} onClick={handleLoginSignupClick}>
+
+                        {/* Redirection to either subscribe or login */}
+                        <div 
+                            className="text-decoration-underline text-primary mt-3" 
+                            style={{ cursor: 'pointer' }} 
+                            onClick={handleLoginSignupClick}
+                        >
                             {isLoggedIn 
                                 ? isSubscribed 
                                     ? null 
-                                    : <p>Subscribe</p> 
-                                : <p>Login</p>}
+                                    : <p>Subscribe to access this content</p> // Display link when not subscribed
+                                : <p>Login to continue</p>}
                         </div>
                     </div>
                     <div className="modal-footer">

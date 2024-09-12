@@ -4,6 +4,7 @@ import { prePrimaryItems, primaryItems, jssItems, secondaryItems } from './schoo
 import config from '../config.js';
 const categoryTableMap = {
     "create/schemes": "schemes",
+    "create/notes": "notes",
     "create/curriculum/designs": "curriculum_designs",
     "create/grade7/examinations": "grade7_examinations",
     "create/grade8/examinations": "grade8_examinations",
@@ -11,9 +12,9 @@ const categoryTableMap = {
     "create/kcse/past/papers": "ksce_past_papers",
     "create/kcse/trial/examinations": "kcse_trial_examinations",
     "create/revision/notes": "revision_notes",            
-    "create/play/group/exam": "playgroup_exams",
-    "create/pp1/exam": "pp1_exams",
-    "create/pp2/exam": "pp2_exams",
+    "create/play/group/exams": "playgroup_exams",
+    "create/pp1/exams": "pp1_exams",
+    "create/pp2/exams": "pp2_exams",
     "create/grade1/exam": "grade1_exams",
     "create/grade2/exam": "grade2_exams",
     "create/grade3/exam": "grade3_exams",
@@ -124,16 +125,50 @@ const Support = () => {
     };
 
     return (
-        <div className="row bgs">
+        <div className="row bgs " >
                {/* Second ul with p tag "CREATE RESOURCES" */}
-            <ul className="col-lg-12 d-flex flex-row justify-content-around list-group-flush py-3 bg-success" style={{ color: 'white' }}>
-                <li className="list-group-item">    <p className="text-info">CREATE RESOURCES</p></li>
-                <li name="pre/primary" schema="preprimary" className="list-group-item" style={{ cursor: 'pointer' }} onClick={handleClick}>Pre Primary</li>
-                <li name="primary" schema="primaryschool" className="list-group-item" style={{ cursor: 'pointer' }} onClick={handleClick}>Primary</li>
-                <li name="jss" schema="jss" className="list-group-item" style={{ cursor: 'pointer' }} onClick={handleClick}>JS</li>
-                <li name="secondary" schema="secondary" className="list-group-item" style={{ cursor: 'pointer' }} onClick={handleClick}>Secondary</li>
-            </ul>
-            
+               <ul className="row list-group-flush py-3 bg-success text-white">
+    <li className="col-12 col-md-auto list-group-item text-center">
+        <p className="text-info m-0">CREATE RESOURCES</p>
+    </li>
+    <li 
+        name="pre/primary" 
+        schema="preprimary" 
+        className="col-6 col-md list-group-item text-center" 
+        style={{ cursor: 'pointer' }} 
+        onClick={handleClick}
+    >
+        Pre Primary
+    </li>
+    <li 
+        name="primary" 
+        schema="primaryschool" 
+        className="col-6 col-md list-group-item text-center" 
+        style={{ cursor: 'pointer' }} 
+        onClick={handleClick}
+    >
+        Primary
+    </li>
+    <li 
+        name="jss" 
+        schema="jss" 
+        className="col-6 col-md list-group-item text-center" 
+        style={{ cursor: 'pointer' }} 
+        onClick={handleClick}
+    >
+        JSS
+    </li>
+    <li 
+        name="secondary" 
+        schema="secondary" 
+        className="col-6 col-md list-group-item text-center" 
+        style={{ cursor: 'pointer' }} 
+        onClick={handleClick}
+    >
+        Secondary
+    </li>
+</ul>
+
             <div className="d-flex justify-content-center">
                 <h4>{path && <h4>{path}</h4>}</h4>
             </div>

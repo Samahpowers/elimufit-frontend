@@ -79,4 +79,14 @@
     background-color: #004170; /* Use a background color to prevent transparency issues */
     width: 100%;
   }
-  
+.logout {
+list-style: none ;
+text-decoration: none;
+}  
+.logout a{
+color: #ffffff;
+text-decoration: none;
+}  
+.logout a:hover{
+  color: rgb(20, 20, 20);
+}

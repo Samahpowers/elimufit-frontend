@@ -4,15 +4,9 @@
     position: relative;
   }
   
-  .footer-list li::after {
-    content: '|'; /* The vertical line */
-    margin-left: 10px; /* Space between the text and the line */
-    color:  #d3d3d3;
-  }
+
   
-  .footer-list li:last-child::after {
-    content: ''; /* Removes the line after the last item */
-  }
+ 
 /* Footer2.css */
 .footer-link {
     font-weight: bold;
@@ -46,3 +40,9 @@
   .custom-footer-text {
     color: #d3d3d3; /* Lighter gray color for good contrast on dark background */
   }          
+
+  /* Tooltip Styling */
+.custom-footer-text {
+  position: relative; /* Position relative to allow positioning of the tooltip */
+}
+

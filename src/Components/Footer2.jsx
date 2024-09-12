@@ -45,7 +45,7 @@ const Footer2 = () => {
             <a className="footer-link-bold text-light mb-3" href="#">ABOUT</a>
             <ul className="list-unstyled custom-footer-text py-2">
               <li><a className="custom-footer-text" href="#">Meet the Team</a></li>
-              <li><a className="custom-footer-text" href="#">Careers at Our Company</a></li>
+              <li><a className="custom-footer-text" href="/careers">Careers at Our Company</a></li>
               <li><a className="custom-footer-text" href="#">Customer Testimonials</a></li>
               <li><a className="custom-footer-text" href="#">Our Partners</a></li>
               <li><a className="custom-footer-text" href="#">Our Offices & Locations</a></li>
@@ -70,7 +70,10 @@ const Footer2 = () => {
           <ul className="d-flex  flex-md-row  list-unstyled custom-footer-text fs-7 fw-light">
             <li className="mx-2"><a className="custom-footer-text" href="#">Privacy Policy</a></li>
             <li className="mx-2"><a className="custom-footer-text" href="#">Terms & Conditions</a></li>
-            <li className="mx-2"><a className="custom-footer-text" href="#">Contact Us</a></li>
+            <li className="mx-2">
+              <a className="custom-footer-text position-relative" href="#" title="0716880637">Contact Us</a>
+            </li>
+
             <li className="mx-2"><a className="custom-footer-text" href="/support/upload/resources">Support</a></li>
           </ul>
           <ul className="list-unstyled fs-7 fw-light custom-footer-text d-flex">

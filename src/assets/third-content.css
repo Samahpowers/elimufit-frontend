@@ -1,7 +1,9 @@
 .custom-gradient-shadow {
     position: relative;
   }
-  
+  .third-container{
+    height: 500px;
+  }
   .custom-gradient-shadow  {
     display: block;
     width: 100%;
@@ -33,3 +35,20 @@
     bottom: -6px; /* Places the pseudo-element below the text */
     left: 0; /* Align the pseudo-element to the left of the p tag */
   }
+  @keyframes growMoveRotate {
+    0% {
+      transform: scale(1) translateX(0) rotate(0deg); /* Initial state */
+    }
+    50% {
+      transform: scale(1.1) translateX(20px) rotate(4deg); /* Grow, move right, and rotate */
+    }
+    100% {
+      transform: scale(1) translateX(0) rotate(0deg); /* Return to original state */
+    }
+  }
+  
+  .animated-image {
+    animation: growMoveRotate 8s ease-in-out infinite; /* Adjust duration as needed */
+    transition: transform 0.3s ease-in-out;
+  }
+  

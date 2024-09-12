@@ -3,8 +3,9 @@ import VerticalNav from "./VerticalNav"; // Import the VerticalNav component
 import logo from "../images/logo.PNG";
 import "../assets/header2.css";
 
-const Header2 = ({ onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribed }) => {
+const Header2 = ({ onClick, isAdmin = false, userId, isLoggedIn, clearToken, isSubscribed }) => {
   console.log("isLogged in in Header2 updated to:", isLoggedIn);
+  console.log("isAdmin in in Header2 updated to:", isAdmin);
   
   const [verticalNavVisible, setVerticalNavVisible] = useState(false);
 
@@ -45,6 +46,7 @@ const Header2 = ({ onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribe
             <ul className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton3">
               <li><a className="dropdown-item" href="/school/resources">School Resources</a></li>
               <li><a className="dropdown-item" href="#resource2">Job Opportunities</a></li>
+              <li> <a className="dropdown-item" href="/support">Support</a></li>
             </ul>
           </li>
           <li className="nav-item dropdown d-none d-md-block">
@@ -57,15 +59,24 @@ const Header2 = ({ onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribe
               <li><a className="dropdown-item" href="#values">Our Values</a></li>
             </ul>
           </li>
-          <li className="nav-item d-none d-md-block">
-            <a className="nav-link text-white" href="#contact">
-              Contact
+          <li className="nav-item dropdown d-none d-md-block">
+            <a className="nav-link dropdown-toggle text-white" href="#about" id="dropdownMenuButton4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Contact us
             </a>
+            <ul className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton4">
+              <li><a className="dropdown-item" href="#team">Tell: 0716880637</a></li>
+              <li><a className="dropdown-item" href="#team">email : info@elimufiti.co.ke</a></li>
+              
+            </ul>
           </li>
+          
           <li className="nav-item d-none d-md-block">
+            {!isLoggedIn && (
             <a className="nav-link text-white" href="/signup">
-              Sign In
-            </a>
+            Sign In
+          </a>
+            )}
+            
           </li>
         </ul>
       </nav>
@@ -78,7 +89,9 @@ const Header2 = ({ onClick, isAdmin, userId, isLoggedIn, clearToken, isSubscribe
                 onClick={() => clearToken()} 
                 style={{ whiteSpace: 'nowrap' }}
               >
-                <i className="bi bi-power"></i> {/* Power icon for Log Out */}
+               <li className="logout">
+                <a href="">Logout</a>
+               </li>
               </span>
             </div>
           ) : (

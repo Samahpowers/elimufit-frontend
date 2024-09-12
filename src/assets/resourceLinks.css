@@ -1,0 +1,79 @@
+.custom-background {
+    background-image: url('../images/books5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    max-width: none; /* Remove any maximum width constraints */
+    margin: 0; /* Ensure no margins are causing spacing issues */
+    padding: 0; /* Ensure no padding is affecting layout */
+  }
+.custom-background-primary {
+    background-image: url('../images/graduant2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    max-width: none; /* Remove any maximum width constraints */
+    margin: 0; /* Ensure no margins are causing spacing issues */
+    padding: 0; /* Ensure no padding is affecting layout */
+  }
+.custom-background-jss {
+    background-image: url('../images/blackboard.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    max-width: none; /* Remove any maximum width constraints */
+    margin: 0; /* Ensure no margins are causing spacing issues */
+    padding: 0; /* Ensure no padding is affecting layout */
+  }
+.custom-background-sec {
+    background-image: url('../images/secondary.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    max-width: none; /* Remove any maximum width constraints */
+    margin: 0; /* Ensure no margins are causing spacing issues */
+    padding: 0; /* Ensure no padding is affecting layout */
+  }
+
+  .ulbcg {
+    
+    background: 
+      linear-gradient(to top, 
+        rgba(253, 253, 253, 1) 0%, 
+        rgba(253, 253, 253, 0.5) 10%, 
+        rgba(253, 253, 253, 0.4) 20%, 
+        rgba(253, 253, 253, 0.3) 30%, 
+        rgba(253, 253, 253, 0.2) 40%, 
+        rgba(253, 253, 253, 0.1) 50%, 
+        rgba(253, 253, 253, 0.05) 60%, 
+        transparent 70%),
+      linear-gradient(to bottom, 
+        rgba(253, 253, 253, 1) 0%, 
+        rgba(253, 253, 253, 0.5) 10%, 
+        rgba(253, 253, 253, 0.4) 20%, 
+        rgba(253, 253, 253, 0.3) 30%, 
+        rgba(253, 253, 253, 0.2) 40%, 
+        rgba(253, 253, 253, 0.1) 50%, 
+        rgba(253, 253, 253, 0.05) 60%, 
+        transparent 70%);
+    
+    background-repeat: no-repeat;
+    background-position: right left, left right;
+  }
+
+  .schoolTittle {
+    background-color: #0f375f; /* Light background color */
+    color: #d6dce2; /* Dark text color */
+    padding: 10px 15px; /* Add some padding */
+    /*border-radius: 6px;  Rounded corners */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    margin: 10px 0; /* Add some margin for spacing */
+    width: 100%;
+  }
+  

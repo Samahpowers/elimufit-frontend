@@ -2,7 +2,7 @@
 import React from 'react';
 import ExamsDownload from '../hooks/NotesDownloadAndDelete';
 
-const JSSRevisionNotesDownload = ({ isAdmin, isLoggedIn, clearToken, isSubscribed }) => {
+const JSSNotesDownload = ({ isAdmin, isLoggedIn, clearToken, isSubscribed }) => {
     return (
     
        
@@ -17,4 +17,4 @@ const JSSRevisionNotesDownload = ({ isAdmin, isLoggedIn, clearToken, isSubscribe
     );
 };
 
-export default JSSRevisionNotesDownload;
+export default JSSNotesDownload;

@@ -38,7 +38,7 @@ export const jssItems = [
         { label: "GRADE 8 EXAMINATIONS  ", value: "/grade8/examinations" ,path: "jss"},
         { label: "JUNIOR SCHOOL FULL SET EXAMINATIONS  ", value: "/jss/fullset/examinations" ,path: "jss"},
         { label: "JUNIOR SCHOOL CURRICULUM DESIGNS  ", value: "/jss/curriculum/designs" ,path: "jss"},
-        { label: "JUNIOR SCHOOL NOTES  ", value: "/jss/revision/notes" ,path: "jss"},        
+        { label: "JUNIOR SCHOOL NOTES  ", value: "/jss/notes" ,path: "jss"},        
         { label: "JUNIOR SCHOOL HOLIDAY ASSIGNMENTS   ", value: "/jss/holiday/assignments" ,path: "jss"}
        
 ]

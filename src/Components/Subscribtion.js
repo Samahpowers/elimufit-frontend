@@ -2,18 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import config from "../config";
+
 const Subscribe = ({ userId }) => {
     const [formData, setFormData] = useState({
         amount: "",
-        phone: "",
-        userId: userId || "",
+        phoneNumber: "",
+        user_id: userId || "", // Change `userId` to `user_id`
     });
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({ type: "", text: "" });
     const navigate = useNavigate();
 
     useEffect(() => {
-        setFormData((prevData) => ({ ...prevData, userId }));
+        setFormData((prevData) => ({ ...prevData, user_id: userId })); // Update to `user_id`
     }, [userId]);
 
     const handleChange = (e) => {
@@ -31,10 +32,9 @@ const Subscribe = ({ userId }) => {
             const response = await axios.post(`${apiUrl}/api/mpesa/stk/push`, formData);
             if (response.data.CustomerMessage) {
                 setMessage({ type: "success", text: response.data.CustomerMessage });
-                // Redirect to home after a short delay
                 setTimeout(() => {
                     navigate("/");
-                }, 3000); // Adjust the delay as needed
+                }, 3000);
             } else {
                 setMessage({ type: "error", text: "Unexpected response. Please try again." });
             }
@@ -49,7 +49,7 @@ const Subscribe = ({ userId }) => {
             }
         } finally {
             setLoading(false);
-            setFormData({ amount: "", phone: "", userId });
+            setFormData({ amount: "", phoneNumber: "", user_id: userId });
             setTimeout(() => setMessage({ type: "", text: "" }), 5000);
         }
     };
@@ -81,24 +81,24 @@ const Subscribe = ({ userId }) => {
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="phone" className="form-label">Phone:</label>
+                                    <label htmlFor="phoneNumber" className="form-label">Phone Number:</label>
                                     <input
                                         type="tel"
-                                        id="phone"
+                                        id="phoneNumber"
                                         className="form-control"
-                                        value={formData.phone}
+                                        value={formData.phoneNumber}
                                         onChange={handleChange}
                                         pattern="^\d{10}$"
                                         required
                                     />
                                 </div>
-                                <div className="mb-3 ">
-                                    <label htmlFor="userId" className="form-label">User ID:</label>
+                                <div className="mb-3">
+                                    <label htmlFor="user_id" className="form-label">User ID:</label>
                                     <input
                                         type="text"
-                                        id="userId"
+                                        id="user_id"
                                         className="form-control"
-                                        value={formData.userId}
+                                        value={formData.user_id}
                                         readOnly
                                     />
                                 </div>

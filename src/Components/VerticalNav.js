@@ -1,4 +1,4 @@
-const VerticalNav = ({userId, isLoggedIn, clearToken, isSubscribed}) => {
+const VerticalNav = ({userId, isLoggedIn, clearToken, isSubscribed, isAdmin}) => {
     return (
       <div className=" vertical-nav" style={{ marginTop: '57px'}}>
         <ul className="nav flex-column">
@@ -45,7 +45,9 @@ const VerticalNav = ({userId, isLoggedIn, clearToken, isSubscribed}) => {
                 onClick={() => clearToken()} 
                 style={{ whiteSpace: 'nowrap' }}
               >
-                <i className="bi bi-power"></i> {/* Power icon for Log Out */}
+                <li>
+                  <a href="">Logout</a>
+                </li>
               </span>
             </div>
           ) : (

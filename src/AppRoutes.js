@@ -29,7 +29,7 @@ import SecondaryHolidayRevisionDownload from './Components/SecondaryHolidayRevis
 import PrimaryRevisionNotes from "./Components/PrimaryRevisionNotes";
 import JSSAssessmentTools from "./Components/JSSAssessmentTools";
 import JSSAssessmentToolsDownload from "./Components/JSSAssessmentToolsDownload";
-import JSSRevisionNotesDownload from "./Components/JSSRevisionNotesDownload";
+import JSSNotesDownload from "./Components/JSSNotesDownload";
 import JSSFullSetExaminations from "./Components/JSSFullSetExaminations";
 import JSSCurriculumDesigns from "./Components/JSSCurriculumDesigns";
 import JSSHolidayAssignments from "./Components/JSSHolidayAssignments";
@@ -57,7 +57,7 @@ import Grade8Examinations from './Components/Grade8Examinations';
 import Grade8ExaminationsDownload from './Components/Grade8ExaminationsDownload';
 import PrimaryRevisionNotesDownload from './Components/PrimaryRevisionNotesDownload';
 import JSSSchemes from './Components/JSSSchemes';
-import JSSRevisionNotes from './Components/JSSRevisionNotes';
+import JSSRevisionNotes from './Components/JSSNotes';
 import JSSSchemesDownload from './Components/JSSSchemesDownload';
 import PrePrimaryCurriculumDesign from './Components/PrePrimaryCurriculumDesign';
 import PrePrimaryCurriculumDesignDownload from './Components/PrePrimaryCurriculumDesignDownload';
@@ -70,19 +70,20 @@ import PrimaryHolidayAssignments from './Components/PrimaryHolidayAssignments';
 import PrimaryHolidayAssignmentsDownload from './Components/PrimaryHolidayAssignmentsDownload';
 import JSSCurriculumDesignsDownload from './Components/JSSCurriculumDesignsDownload';
 import DeleteModal from './Components/DeleteModal';
-import JobOpportunities from './Components/Home';
 import VerticalNav from './Components/VerticalNav';
 
 
 import Header2 from './Components/Header2';
 import Footer2 from './Components/Footer2';
 import ResourceLinks from './Components/ResourceLinks';
+import Careers from './Components/Careers';
 
 
 const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIsLoggedIn, setUserId, setShowModal }) => (
    <>
     <Header2
      isSubscribed={isSubscribed} 
+     isAdmin={isAdmin} 
      isLoggedIn={isLoggedIn} 
      userId={userId} 
      clearToken={clearToken} 
@@ -90,17 +91,21 @@ const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIs
    
    <Routes>
         
-        <Route path='/vertical/nav' element={<VerticalNav isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
+        {isAdmin && (
+        <Route 
+            path='/support' 
+            element={<Support isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} 
+        />
+        )}
+
+        <Route path='/vertical/nav' element={<VerticalNav isSubscribed={isSubscribed} isAdmin={isAdmin} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/' element={<Home isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/school/resources' element={<ResourceLinks isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
-       
-       
-        
+        <Route path='/careers' element={<Careers isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />      
        
         <Route path='/login' element={<Login isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />} />
-        <Route path='/signup' element={<Signup isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />} />
-        <Route path='/job/opportunities' element={<JobOpportunities isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />}/>    
-        <Route path='/subscription' element={<Subscribe userId={userId} />} />
+        <Route path='/signup' element={<Signup isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} />} />     
+        <Route path='/subscription' element={<Subscribe userId={userId} />} />       
         <Route 
         path="/play/group/exams" 
         element={<PlayGroup isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed} />}
@@ -159,12 +164,12 @@ const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIs
         element={<JSSHolidayAssignmentsDownload isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed}/>}
         />
         <Route 
-        path="/jss/revision/notes" 
+        path="/jss/notes" 
         element={<JSSRevisionNotes isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed}/>}
         />
         <Route 
-        path="/jss/revision/notes/download" 
-        element={<JSSRevisionNotesDownload isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed}/>}
+        path="/jss/notes/download" 
+        element={<JSSNotesDownload isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed}/>}
         />
         <Route 
         path="/jss/curriculum/designs" 
@@ -361,12 +366,22 @@ const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIs
         <Route 
         path="/play/group/exams/download" 
         element={<PlayGroupDownload isAdmin={isAdmin} userId={userId} isLoggedIn={isLoggedIn} clearToken={clearToken} isSubscribed={isSubscribed}/>} 
-        />      
-        <Route path="/modal" element={<Modal isLoggedIn={isLoggedIn} setShowModal={setShowModal} isSubscribed={isSubscribed}/>} />
-        <Route path="/delete/modal" element={<DeleteModal isLoggedIn={isLoggedIn} setShowModal={setShowModal} isSubscribed={isSubscribed}/>} />
+        />         
         <Route path='*' element={<div>404 Not Found</div>} /> {/* Optional: Add a 404 page */}
     </Routes>
     <Footer2
+     isSubscribed={isSubscribed} 
+     isLoggedIn={isLoggedIn} 
+     userId={userId} 
+     clearToken={clearToken} 
+    />
+    <Modal
+     isSubscribed={isSubscribed} 
+     isLoggedIn={isLoggedIn} 
+     userId={userId} 
+     clearToken={clearToken} 
+    />
+    <DeleteModal
      isSubscribed={isSubscribed} 
      isLoggedIn={isLoggedIn} 
      userId={userId} 

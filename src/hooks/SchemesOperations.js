@@ -64,7 +64,12 @@ export const SchemesDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSu
                                                             handleDownloadExam(selectedItem.path, item.id, selectedItem.value, item.fileName);
                                                         }}
                                                         style={{ fontFamily: 'Copperplate, Copperplate Gothic Light, serif' }}>
-                                                        {item.examMS} - {item.subject} - {item.year}.{item.fileExtension}
+
+                                                        {item.examMS} - 
+                                                        {item.subject} - 
+                                                        {item.year}.
+                                                        {item.fileName}
+                                                        {item.fileExtension}
                                                     </a>
 
                                                     {isAdmin && (
