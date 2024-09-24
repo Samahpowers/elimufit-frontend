@@ -57,20 +57,37 @@ export const SchemesDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSu
                                             <h3 className="my-4">{groupingKey.toUpperCase()} {key}</h3>
                                             {groupedData[key].map((item) => (
                                                 <div key={item.id} style={{ margin: '0px 0' }}>
-                                                    <a href="#" 
-                                                        className="my-4 custom-font text-decoration-none"
+                                                    <div
+                                                        
+                                                        className="my-2 custom-font t"
                                                         onClick={(e) => {
                                                             e.preventDefault();
-                                                            handleDownloadExam(selectedItem.path, item.id, selectedItem.value, item.fileName);
+                                                            // Pass the actual fileName parameter to handleDownloadExam
+                                                            handleDownloadExam(
+                                                                selectedItem.path, 
+                                                                item.id, 
+                                                                selectedItem.value, 
+                                                                item.fileName
+                                                            );
                                                         }}
-                                                        style={{ fontFamily: 'Copperplate, Copperplate Gothic Light, serif' }}>
-
-                                                        {item.examMS} - 
-                                                        {item.subject} - 
-                                                        {item.year}.
-                                                        {item.fileName}
-                                                        {item.fileExtension}
-                                                    </a>
+                                                        style={{ fontFamily: 'Copperplate, Copperplate Gothic Light, serif' }}
+                                                    >
+                                                         {item.fileName && (
+                                                        <p 
+                                                            className="cursor-pointer text-primary custom-font" 
+                                                            style={{ 
+                                                                cursor: 'pointer', 
+                                                                textDecoration: "underline", 
+                                                                margin: 0, // Remove margin to eliminate the gap
+                                                                fontFamily: 'Copperplate, Copperplate Gothic Light, serif'
+                                                            }}
+                                                        >
+                                                            {item.fileName}
+                                                        </p>
+                                                    )}                                         
+                                                       
+                                                       
+                                                    </div>
 
                                                     {isAdmin && (
                                                         <i

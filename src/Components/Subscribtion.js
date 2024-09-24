@@ -7,14 +7,16 @@ const Subscribe = ({ userId }) => {
     const [formData, setFormData] = useState({
         amount: "",
         phoneNumber: "",
-        user_id: userId || "", // Change `userId` to `user_id`
+        user_id: userId || "",
     });
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({ type: "", text: "" });
     const navigate = useNavigate();
 
     useEffect(() => {
-        setFormData((prevData) => ({ ...prevData, user_id: userId })); // Update to `user_id`
+        if (userId) {
+            setFormData((prevData) => ({ ...prevData, user_id: userId }));
+        }
     }, [userId]);
 
     const handleChange = (e) => {
@@ -28,25 +30,20 @@ const Subscribe = ({ userId }) => {
         setMessage({ type: "", text: "" });
 
         try {
-            const apiUrl = config.API_BASE_URL;
-            const response = await axios.post(`${apiUrl}/api/mpesa/stk/push`, formData);
-            if (response.data.CustomerMessage) {
-                setMessage({ type: "success", text: response.data.CustomerMessage });
-                setTimeout(() => {
-                    navigate("/");
-                }, 3000);
-            } else {
-                setMessage({ type: "error", text: "Unexpected response. Please try again." });
+            const response = await axios.post(`${config.API_BASE_URL}/api/transactions/stk/push`, formData);
+            const messageType = response.data.CustomerMessage ? "success" : "error";
+            const messageText = response.data.CustomerMessage || "Unexpected response. Please try again.";
+
+            setMessage({ type: messageType, text: messageText });
+
+            if (messageType === "success") {
+                setTimeout(() => navigate("/"), 3000);
             }
         } catch (err) {
-            if (err.response) {
-                setMessage({
-                    type: "error",
-                    text: `Error: ${err.response.data.message || "Failed to process the subscription."}`,
-                });
-            } else {
-                setMessage({ type: "error", text: `Request error: ${err.message}` });
-            }
+            const errorMessage = err.response 
+                ? err.response.data.message || "Failed to process the subscription." 
+                : `Request error: ${err.message}`;
+            setMessage({ type: "error", text: errorMessage });
         } finally {
             setLoading(false);
             setFormData({ amount: "", phoneNumber: "", user_id: userId });
@@ -60,7 +57,7 @@ const Subscribe = ({ userId }) => {
                 <div className="col-md-6">
                     <div className="card">
                         <div className="card-header bg-primary text-white text-center">
-                            <h5>Subscribe to access all resources</h5>
+                            <h5>Subscribe to Access All Resources</h5>
                         </div>
                         <div className="card-body">
                             {message.text && (

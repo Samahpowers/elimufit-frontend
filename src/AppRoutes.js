@@ -91,12 +91,14 @@ const AppRoutes = ({isAdmin, isSubscribed, isLoggedIn, userId, clearToken, setIs
    
    <Routes>
         
-        {isAdmin && (
-        <Route 
+      
+        {isAdmin &&(
+            <Route 
             path='/support' 
             element={<Support isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} 
         />
         )}
+        
 
         <Route path='/vertical/nav' element={<VerticalNav isSubscribed={isSubscribed} isAdmin={isAdmin} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />
         <Route path='/' element={<Home isSubscribed={isSubscribed} isLoggedIn={isLoggedIn} userId={userId} clearToken={clearToken} />} />

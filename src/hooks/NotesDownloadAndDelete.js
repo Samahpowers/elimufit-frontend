@@ -49,22 +49,40 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
                                 {Object.keys(groupedData).length > 0 ? (
                                     Object.keys(groupedData).map((grade) => (
                                         <div key={grade}>
-                                            <h3 className="my-4">GRADE {grade}</h3>
+                                            {grade && (<h3 className="my-4">GRADE {grade}</h3>)}
                                             {groupedData[grade].map((item) => (
                                                 <div key={item.id} className="mb-2">
-                                                    <a
-                                                        href="#"
-                                                        className="my-4 custom-font text-decoration-none"
+                                                    <div
+                                                        
+                                                        className="my-2 custom-font t"
                                                         onClick={(e) => {
                                                             e.preventDefault();
-                                                            handleDownloadExam(selectedItem.path, item.id, selectedItem.value, item.fileName);
+                                                            // Pass the actual fileName parameter to handleDownloadExam
+                                                            handleDownloadExam(
+                                                                selectedItem.path, 
+                                                                item.id, 
+                                                                selectedItem.value, 
+                                                                item.fileName
+                                                            );
                                                         }}
                                                         style={{ fontFamily: 'Copperplate, Copperplate Gothic Light, serif' }}
-                                                        title={`Download ${item.fileName}`}
-                                                        aria-label={`Download ${item.fileName}`}
                                                     >
-                                                       {item.examMS} - {item.year} - {item.subject} - {item.fileExtension}
-                                                    </a>
+                                                         {item.fileName && (
+                                                        <p 
+                                                            className="cursor-pointer text-primary custom-font" 
+                                                            style={{ 
+                                                                cursor: 'pointer', 
+                                                                textDecoration: "underline", 
+                                                                margin: 0, // Remove margin to eliminate the gap
+                                                                fontFamily: 'Copperplate, Copperplate Gothic Light, serif'
+                                                            }}
+                                                        >
+                                                            {item.fileName}
+                                                        </p>
+                                                    )}                                          
+                                                       
+                                                       
+                                                    </div>
                                                     {isAdmin && (
                                                         <i
                                                             onClick={() => handleDeleteClick(item)}

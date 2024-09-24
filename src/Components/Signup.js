@@ -9,7 +9,7 @@ const Signup = ({ isAdmin }) => {
         name: "",
         email: "",
         password: "",
-        phone: "",
+        phoneNumber: "",
         isAdmin: false
     });
 
@@ -85,8 +85,8 @@ const Signup = ({ isAdmin }) => {
             onChange={handleInput} 
             type="number" 
             className="form-control" 
-            name="phone" 
-            value={values.phone}
+            name="phoneNumber" 
+            value={values.phoneNumber}
           />                           
           {errors.phone && <span className="text-danger">{errors.phone}</span>}                        
         </div>

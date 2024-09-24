@@ -42,6 +42,7 @@ const Login = () => {
             
             // Store token and userId in local storage
             localStorage.setItem('accessToken', token);
+            localStorage.setItem('userId', userId);
           
     
             // Redirect or perform any action upon successful login

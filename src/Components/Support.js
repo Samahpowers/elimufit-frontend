@@ -186,8 +186,16 @@ const Support = () => {
                     >
                         <option  value=""> Select Category</option>
                         {Object.keys(categoryTableMap).map(key => (
-                            <option key={key} value={key}>{categoryTableMap[key].replace(/_/g, ' ')}</option>
-                        ))}
+    <option key={key} value={key}>
+        {categoryTableMap[key]
+            .replace(/_/g, ' ') // Replace underscores with spaces
+            .toLowerCase() // Convert the entire string to lowercase
+            .replace(/\b\w/g, char => char.toUpperCase()) // Capitalize the first letter of each word
+        }
+    </option>
+))}
+
+
                     </select>
                 </div>
                 <div className={`d-flex justify-content-center vh-100 position-relative ${showForm ? "" : "d-none"}`}>

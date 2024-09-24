@@ -3,9 +3,10 @@ import VerticalNav from "./VerticalNav"; // Import the VerticalNav component
 import logo from "../images/logo.PNG";
 import "../assets/header2.css";
 
-const Header2 = ({ onClick, isAdmin = false, userId, isLoggedIn, clearToken, isSubscribed }) => {
+const Header2 = ({ onClick, isAdmin , userId, isLoggedIn, clearToken, isSubscribed }) => {
   console.log("isLogged in in Header2 updated to:", isLoggedIn);
   console.log("isAdmin in in Header2 updated to:", isAdmin);
+  console.log("isSubscribed in in Header2 updated to:", isSubscribed);
   
   const [verticalNavVisible, setVerticalNavVisible] = useState(false);
 
@@ -46,7 +47,7 @@ const Header2 = ({ onClick, isAdmin = false, userId, isLoggedIn, clearToken, isS
             <ul className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton3">
               <li><a className="dropdown-item" href="/school/resources">School Resources</a></li>
               <li><a className="dropdown-item" href="#resource2">Job Opportunities</a></li>
-              <li> <a className="dropdown-item" href="/support">Support</a></li>
+              <li> <a className="dropdown-item" href={isAdmin ?  "/support": "/"}>Support</a></li>
             </ul>
           </li>
           <li className="nav-item dropdown d-none d-md-block">

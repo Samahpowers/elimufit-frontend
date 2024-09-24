@@ -2,7 +2,7 @@ export const validationSignup = (values) => {
     let errors = {};
     const email_pattern = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
     const password_pattern = /.{4,}/; // At least 4 characters
-    const phone_pattern = /.{10,}/; // At least 4 characters.......do a correct pattern
+    const phoneNumber_pattern = /.{10,}/; // At least 4 characters.......do a correct pattern
     
 
     if (!values.name.trim()) {
@@ -11,12 +11,12 @@ export const validationSignup = (values) => {
         errors.name = "";
     }
 
-    if (!values.phone.trim()) {
-        errors.phone = "Phone Number should not be empty";
-    } else if (!phone_pattern.test(values.email)) {
-        errors.phone = "Invalid phoneNumber";
+    if (!values.phoneNumber.trim()) {
+        errors.phoneNumber = "Phone Number should not be empty";
+    } else if (!phoneNumber_pattern.test(values.email)) {
+        errors.phoneNumber = "Invalid phoneNumberNumber";
     } else {
-        errors.phone = "";
+        errors.phoneNumber = "";
     }
     if (!values.email.trim()) {
         errors.email = "Email should not be empty";

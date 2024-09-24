@@ -44,12 +44,11 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
                                 {Object.keys(groupedData).length > 0 ? (
                                     Object.keys(groupedData).map((set) => (
                                         <div key={set}>
-                                            <h3 className="my-4">SET {set}</h3>
+                                            {set && (<h3 className="my-4">SET {set}</h3>)}
                                             {groupedData[set].map((item) => (
                                                 <div key={item.id} className="mb-2">
-                                                    <a
-                                                        href="#"
-                                                        className="my-4 custom-font text-decoration-none"
+                                                    <div                                                       
+                                                        
                                                         onClick={(e) => {
                                                             e.preventDefault();
                                                             // Pass the actual fileName parameter to handleDownloadExam
@@ -57,13 +56,32 @@ const ExamsDownload = ({ isAdmin, isLoggedIn, clearToken, heading, isSubscribed 
                                                                 selectedItem.path, 
                                                                 item.id, 
                                                                 selectedItem.value, 
-                                                                item.examMS
+                                                                item.fileName
                                                             );
                                                         }}
-                                                        style={{ fontFamily: 'Copperplate, Copperplate Gothic Light, serif' }}
+                                                        
                                                     >
-                                                        {item.examMS} - {item.year} - {item.subject} - {item.fileExtension}
-                                                    </a>
+                                                       {item.examMS && (
+                                                        <p className='fw-bold mb-2' style={{ margin: 0,  }}>
+                                                            {item.examMS}
+                                                        </p>
+                                                    )}
+                                                    {item.fileName && (
+                                                        <p 
+                                                            className="cursor-pointer text-primary custom-font" 
+                                                            style={{ 
+                                                                cursor: 'pointer', 
+                                                                textDecoration: "underline", 
+                                                                margin: 0, // Remove margin to eliminate the gap
+                                                                fontFamily: 'Copperplate, Copperplate Gothic Light, serif'
+                                                            }}
+                                                        >
+                                                            {item.fileName}
+                                                        </p>
+                                                    )}
+
+                                                       
+                                                    </div>
                                                     {isAdmin && (
                                                         <i
                                                             onClick={() => handleDeleteClick(item)}
