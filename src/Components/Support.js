@@ -54,15 +54,26 @@ const Support = () => {
     };
 
     const handleFileChange = (e) => {
+        const allowedExtensions = [
+            '.pdf', '.docx', '.doc', '.xlsx', '.xls', '.pptx', '.ppt',
+            '.txt', '.rtf', '.csv', '.jpg', '.jpeg', '.png', '.gif',
+            '.bmp', '.tiff', '.zip', '.rar', '.7z', '.tar', '.gz',
+            '.mp3', '.wav', '.mp4', '.mov', '.avi', '.mkv', '.flv',
+            '.html', '.htm', '.css', '.js', '.json', '.xml'
+        ];
+    
         const file = e.target.files[0];
         const fileName = file.name;
         const fileExtension = fileName.substring(fileName.lastIndexOf('.')).toLowerCase();
+    
         if (!allowedExtensions.includes(fileExtension)) {
             console.error("Invalid file extension.");
             return;
         }
+    
         setValues(prev => ({ ...prev, file }));
     };
+    
 
     const handleCategoryChange = (e) => {
         const selectedCategory = e.target.value;
