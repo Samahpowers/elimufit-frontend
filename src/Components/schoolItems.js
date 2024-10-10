@@ -13,7 +13,7 @@
         { label: "PLAYGROUP EXAMS", value: "/play/group/exams", path: "pre/primary" },
         { label: "PP1 EXAMS", value: "/pp1/exams" , path: "pre/primary"},
         { label: "PP2 EXAMS", value: "/pp2/exams" , path: "pre/primary"},
-        { label: "PRE-PRIMARY HOLIDAY ASSIGNMENTS", value: "/pre/primary/holiday/assignments" , path: "pre/primary"},
+        { label: "PRE-PRIMARY HOLIDAY REVISIONS", value: "/pre/primary/holiday/assignments" , path: "pre/primary"},
         
         
     ]

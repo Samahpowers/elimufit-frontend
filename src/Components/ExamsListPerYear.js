@@ -39,55 +39,49 @@ const ExamsList = ({ heading, items, navigateTo }) => {
     };
 
     return (
-        <div className="bg-opacity " style={{ position: 'relative' }}>
-            <div >
-               
-                <div className="container-fluid" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
-                    <div className="row">
-                        <div className="col-lg-12 ">
-                            <h1 className="text-center my-4 py-4">{heading}</h1>
-                            {error && <div className="alert alert-danger">{error}</div>}
-                            {loading ? (
-                                <div>Loading...</div>
-                            ) : (
-                                <div className="list-group">
-                                    {items.map((item, index) => (
-                                        <div key={index} className="list-group-item" style={{
-                                            marginBottom: '20px',
-                                            backgroundColor: item.bgColor,
-                                            border: 'none',
-                                            fontSize: "24px",
-                                            borderRadius: "none"
-                                        }} onClick={() => handleItemClick(item)}>
-                                            <div style={{
-                                                display: 'inline-block',
-                                                color: item.textColor || '#000000',
-                                                textDecoration: 'underline',
-                                                paddingTop: '20px',
-                                                paddingBottom: '20px',
-                                                overflow: 'hidden',
-                                                whiteSpace: 'wrap',
-                                                textOverflow: 'ellipsis',
-                                                cursor: 'pointer',
-                                                borderRadius: "none"
-                                            }}>
-                                                {item.name}
-                                            </div>
+        <div className="bg-opacity" style={{ position: 'relative' }}>
+    <div>
+        <div className="container-fluid" style={{ paddingLeft: '10px', paddingRight: '10px' }}>
+            <div className="row">
+                <div className="col-lg-12">
+                    <h1 className="text-center my-4 py-4">{heading}</h1>
+                    {error && <div className="alert alert-danger">{error}</div>}
+                    {loading ? (
+                        <div>Loading...</div>
+                    ) : (
+                        <div className="d-flex justify-content-center">
+                            <div className="list-group">
+                                {items.map((item, index) => (
+                                    <div key={index} className="list-group-item" style={{
+                                        marginBottom: '20px',
+                                        backgroundColor: item.bgColor,
+                                        border: 'none',
+                                        fontSize: "24px"
+                                    }} onClick={() => handleItemClick(item)}>
+                                        <div style={{
+                                            display: 'inline-block',
+                                            color: item.textColor || '#000000',
+                                            textDecoration: 'underline',
+                                            paddingTop: '20px',
+                                            paddingBottom: '20px',
+                                            overflow: 'hidden',
+                                            whiteSpace: 'nowrap',
+                                            textOverflow: 'ellipsis',
+                                            cursor: 'pointer',
+                                        }}>
+                                            {item.name}
                                         </div>
-                                    ))}
-                                </div>
-                            )}
-                                   
-
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                 
-
-                    </div>
-                 
+                    )}
                 </div>
             </div>
-            
         </div>
+    </div>
+</div>
+
     );
 };
 

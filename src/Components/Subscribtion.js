@@ -66,20 +66,29 @@ const Subscribe = ({ userId }) => {
                                 </div>
                             )}
                             <form onSubmit={handleSubmit}>
-                                <div className="mb-3">
-                                    <label htmlFor="amount" className="form-label">Amount:</label>
-                                    <input
-                                        type="number"
-                                        id="amount"
-                                        className="form-control"
-                                        value={formData.amount}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
+                            <div className="mb-3">
+                            <label htmlFor="amount" className="form-label">Amount:</label>
+                            <select
+                                id="amount"
+                                className="form-select " 
+                                value={formData.amount}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select Subscription & Fee</option>
+                                <option value="1">1 - 1 day</option>
+                                <option value="200">200 - 1 Month</option>
+                                <option value="500">500 - 3 Months</option>
+                                <option value="1000">1000 - 6 Months</option>
+                                <option value="1800">1800 - 1 Year</option>
+                            </select>
+                        </div>
+
+
                                 <div className="mb-3">
                                     <label htmlFor="phoneNumber" className="form-label">Phone Number:</label>
                                     <input
+                                        placeholder="Enter number to Use for Payment"
                                         type="tel"
                                         id="phoneNumber"
                                         className="form-control"
@@ -87,9 +96,10 @@ const Subscribe = ({ userId }) => {
                                         onChange={handleChange}
                                         pattern="^\d{10}$"
                                         required
+                                        
                                     />
                                 </div>
-                                <div className="mb-3">
+                                <div className="mb-3 d-none">{/*hide the user id and this part to be replaced with user name later*/}
                                     <label htmlFor="user_id" className="form-label">User ID:</label>
                                     <input
                                         type="text"
